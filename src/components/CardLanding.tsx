@@ -105,7 +105,13 @@ const CardLanding: React.FC = () => {
       image: "https://files.catbox.moe/ih4u26.png",
       tech: ["React", "PDF", "Business"],
       gradient: "from-orange-500 to-red-500"
-    }
+    }, 
+    title: "Project Communication Manajement",
+    description: language === 'id' ? "Presentasi Manajemen Komunikasi Proyek berbasis Website Interaktif disertai studi kasus" : "Interactive Website-based Project Communication Management presentation with case study",
+    url : "https://procomma.vercel.app",
+    image: "https://api.pikwy.com/web/68724a0343831d413f27133e.jpg",
+    tech: ["React", "Education", "YouTube"],
+    gradient: "from-blue-500-to-orange-500"
   ];
 
   const technicalSkills = [
