@@ -206,6 +206,7 @@ const CardLanding: React.FC = () => {
       company: "Radio Alaikassalam 95.5 FM",
       period: "Januari 2022 - Maret 2022",
       location: "Jakarta",
+       description: [
         "Mendiagnosis kerusakan yang terjadi pada Laptop dan Ponsel dengan kerusakan ringan",
         "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain",
         "Upgrade Komponen Laptop (RAM, SSD/HDD)",
