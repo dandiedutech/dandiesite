@@ -186,6 +186,19 @@ const CardLanding: React.FC = () => {
         "Mengembangkan situs web dan tools kustom secara end-to-end, mulai dari analisis kebutuhan klien, perancangan, pengembangan, hingga peluncuran",
         "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL",
         "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable)",
+        "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka",
+        "Menjamin kualitas, performa, dan keamanan aplikasi dengan melakukan pengujian, debugging, dan pemeliharaan secara rutin"
+      ]
+    },
+    {
+      title: "Freelance Web Developer",
+      company: "Self-Employed",
+      period: "2024 - Sekarang",
+      location: "Remote",
+      description: [
+        "Mengembangkan situs web dan tools kustom secara end-to-end, mulai dari analisis kebutuhan klien, perancangan, pengembangan, hingga peluncuran",
+        "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL",
+        "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable)",
         "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka"
       ]
     },
@@ -193,20 +206,20 @@ const CardLanding: React.FC = () => {
       title: "Teknisi IT",
       company: "Kelurahan Rawa Bunga Jakarta Timur",
       period: "Desember 2024 - Januari 2025",
-      location: "Jakarta Timur",
+      location: "Jakarta",
       description: [
         "Mendiagnosis dan mengatasi masalah performa pada PC AIO Client, melakukan optimasi sistem dan software untuk meningkatkan kecepatan dan kelancaran",
         "Melakukan instalasi dan konfigurasi PC serta printer, memastikan perangkat terhubung dengan baik dan siap digunakan untuk berbagai kebutuhan",
         "Melakukan perbaikan laptop dari berbagai kerusakan, termasuk penggantian sparepart, instalasi ulang sistem operasi, hingga upgrade komponen untuk performa yang lebih baik",
         "Mengidentifikasi dan menyelesaikan masalah IT dengan cepat dan efisien, mencegah masalah serupa terulang kembali"
-      ]
-    },
-    {
       title: "Asisten Direktur Music",
       company: "Radio Alaikassalam 95.5 FM",
       period: "Januari 2022 - Maret 2022",
       location: "Jakarta",
        description: [
+        "Merancang dan memproduksi insert radio untuk keperluan rekaman dan siaran",
+        "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional",
+        "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses"
         "Mendiagnosis kerusakan yang terjadi pada Laptop dan Ponsel dengan kerusakan ringan",
         "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain",
         "Upgrade Komponen Laptop (RAM, SSD/HDD)",
@@ -214,7 +227,7 @@ const CardLanding: React.FC = () => {
       ]
     },
     {
-      title: "Mengelola E-Commerce",
+      title: "E-Commerce Manager",
       company: "Berbagai Platform",
       period: "Juli 2019",
       location: "Jakarta",
@@ -242,7 +255,7 @@ const CardLanding: React.FC = () => {
       title: "IT Technician",
       company: "Kelurahan Rawa Bunga Jakarta Timur",
       period: "December 2024 - January 2025",
-      location: "Jakarta Timur",
+      location: "Jakarta",
       description: [
         "Diagnosed and resolved performance issues on PC AIO Client, optimizing systems and software for improved speed and efficiency",
         "Installed and configured PCs and printers, ensuring proper device connectivity for various operational needs",
