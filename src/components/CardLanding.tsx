@@ -86,7 +86,7 @@ const CardLanding: React.FC = () => {
       title: "Unindra AI Chatbot",
       description: language === 'id' ? "Chatbot bertenaga AI untuk bantuan universitas dan dukungan mahasiswa dengan respons cerdas" : "AI-powered chatbot for university assistance and student support with intelligent responses",
       url: "https://unindra.info",
-      image: "https://files.catbox.moe/86pabc.png",
+      image: "https://api.pikwy.com/web/68724edec5ac39761b2a76ff.png",
       tech: ["AI", "Chatbot", "JavaScript"],
       gradient: "from-blue-500 to-cyan-500"
     },
