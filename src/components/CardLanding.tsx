@@ -30,10 +30,26 @@ import { useTheme } from './ThemeContext';
 
 const CardLanding: React.FC = () => {
   const [activeTab, setActiveTab] = useState('about');
-  const { language, toggleLanguage } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
-  const tabs = [
+  // Tech stack icons for background animation
+  const techIcons = [
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", name: "React" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", name: "Node.js" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", name: "JavaScript" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML5" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS3" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", name: "PostgreSQL" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", name: "Git" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", name: "Python" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", name: "MySQL" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", name: "MongoDB" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", name: "TypeScript" },
+    { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", name: "Docker" },
+  ];
+
+  const navigationItems = [
     { id: 'about', label: language === 'id' ? 'Tentang' : 'About', icon: User },
     { id: 'projects', label: language === 'id' ? 'Proyek' : 'Projects', icon: Code },
     { id: 'skills', label: language === 'id' ? 'Keahlian' : 'Skills', icon: Award },
@@ -43,59 +59,124 @@ const CardLanding: React.FC = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: language === 'id' 
-        ? "Platform e-commerce modern dengan fitur lengkap, payment gateway, dan admin dashboard"
-        : "Modern e-commerce platform with complete features, payment gateway, and admin dashboard",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "#"
+      title: "Kepo-in Anonymous Platform",
+      description: language === 'id' ? "Platform pesan anonim untuk komunikasi aman dengan fokus privasi" : "Anonymous messaging platform for secure communication with privacy focus",
+      url: "https://kepo-in.vercel.app",
+      image: "https://files.catbox.moe/g2l6h2.png",
+      tech: ["React", "Anonymous", "Messaging"],
+      gradient: "from-red-500 to-pink-500"
     },
     {
-      title: "Task Management App",
-      description: language === 'id'
-        ? "Aplikasi manajemen tugas dengan real-time collaboration dan notifikasi"
-        : "Task management application with real-time collaboration and notifications",
-      tech: ["React", "Firebase", "Tailwind CSS"],
-      image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "#"
+      title: "UnindraFess",
+      description: language === 'id' ? "Platform confess anonim untuk mahasiswa universitas dengan pesan real-time" : "Anonymous confession platform for university students with real-time messaging",
+      url: "https://unindrafess.vercel.app",
+      image: "https://files.catbox.moe/xgdwn9.png",
+      tech: ["React", "Node.js", "PostgreSQL"],
+      gradient: "from-green-500 to-emerald-500"
     },
     {
-      title: "Portfolio Website",
-      description: language === 'id'
-        ? "Website portfolio responsif dengan animasi smooth dan dark mode"
-        : "Responsive portfolio website with smooth animations and dark mode",
-      tech: ["React", "TypeScript", "Framer Motion"],
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "#"
+      title: "Maba Validator",
+      description: language === 'id' ? "Sistem validasi mahasiswa baru untuk pendaftaran universitas dengan verifikasi otomatis" : "New student validation system for university enrollment with automated verification",
+      url: "https://maba2025.vercel.app",
+      image: "https://files.catbox.moe/lqu5xc.png",
+      tech: ["React", "Database", "Validation"],
+      gradient: "from-yellow-500 to-orange-500"
+    },
+    {
+      title: "Unindra AI Chatbot",
+      description: language === 'id' ? "Chatbot bertenaga AI untuk bantuan universitas dan dukungan mahasiswa dengan respons cerdas" : "AI-powered chatbot for university assistance and student support with intelligent responses",
+      url: "https://unindra.info",
+      image: "https://files.catbox.moe/86pabc.png",
+      tech: ["AI", "Chatbot", "JavaScript"],
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Belajar Bareng",
+      description: language === 'id' ? "Platform pembelajaran kolaboratif untuk mahasiswa dengan fitur interaktif" : "Collaborative learning platform for students with interactive features",
+      url: "https://belajarbareng.vercel.app",
+      image: "https://files.catbox.moe/lr7coh.png",
+      tech: ["React", "Education", "Collaboration"],
+      gradient: "from-indigo-500 to-purple-500"
+    },
+    {
+      title: "RajaSusu Invoice Generator",
+      description: language === 'id' ? "Sistem pembuatan dan manajemen invoice profesional untuk bisnis" : "Professional invoice generation and management system for businesses",
+      url: "https://invoge.vercel.app",
+      image: "https://files.catbox.moe/ih4u26.png",
+      tech: ["React", "PDF", "Business"],
+      gradient: "from-orange-500 to-red-500"
     }
   ];
 
-  const skills = {
-    technical: [
-      { name: "JavaScript", icon: "⚡" },
-      { name: "TypeScript", icon: "🔷" },
-      { name: "React.js", icon: "⚛️" },
-      { name: "Node.js", icon: "🟢" },
-      { name: "PostgreSQL", icon: "🐘" },
-      { name: "HTML/CSS", icon: "🎨" },
-      { name: "Tailwind CSS", icon: "💨" },
-      { name: "Git", icon: "📝" }
-    ],
-    soft: [
-      { name: language === 'id' ? "Komunikasi" : "Communication", icon: "💬" },
-      { name: language === 'id' ? "Kerja Tim" : "Teamwork", icon: "👥" },
-      { name: language === 'id' ? "Problem Solving" : "Problem Solving", icon: "🧩" },
-      { name: language === 'id' ? "Manajemen Waktu" : "Time Management", icon: "⏰" }
-    ],
-    tools: [
-      { name: "VS Code", icon: "💻" },
-      { name: "Figma", icon: "🎨" },
-      { name: "Postman", icon: "📮" },
-      { name: "Docker", icon: "🐳" }
-    ]
-  };
+  const technicalSkills = [
+    { 
+      name: "HTML", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+      color: "from-orange-500 to-red-500"
+    },
+    { 
+      name: "CSS", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+      color: "from-blue-500 to-blue-600"
+    },
+    { 
+      name: "JavaScript", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      color: "from-yellow-400 to-yellow-500"
+    },
+    { 
+      name: "React.js", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      color: "from-cyan-400 to-blue-500"
+    },
+    { 
+      name: "Node.js", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      color: "from-green-500 to-green-600"
+    },
+    { 
+      name: "PostgreSQL", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+      color: "from-blue-600 to-indigo-600"
+    },
+    { 
+      name: "MySQL", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+      color: "from-blue-500 to-orange-500"
+    },
+    { 
+      name: "Git", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      color: "from-red-500 to-orange-500"
+    }
+  ];
 
+  const softSkills = [
+    { name: language === 'id' ? 'Manajemen Waktu yang Efektif' : 'Effective Time Management', icon: "⏰", color: "from-blue-500 to-purple-500" },
+    { name: language === 'id' ? 'Adaptasi Cepat' : 'Quick Adaptation', icon: "🚀", color: "from-green-500 to-teal-500" },
+    { name: language === 'id' ? 'Berpikir Kritis dan Analitis' : 'Critical & Analytical Thinking', icon: "🧠", color: "from-purple-500 to-pink-500" },
+    { name: language === 'id' ? 'Komunikasi dan Kerja Sama Tim' : 'Communication & Teamwork', icon: "🤝", color: "from-orange-500 to-red-500" }
+  ];
+
+  const systemSkills = [
+    { name: "OS Installation", icon: "💻", color: "from-gray-600 to-gray-700" },
+    { name: "Hardware Maintenance", icon: "🔧", color: "from-blue-600 to-indigo-600" },
+    { name: "Troubleshooting", icon: "🔍", color: "from-green-600 to-emerald-600" },
+    { name: "Windows & Linux", icon: "🖥️", color: "from-purple-600 to-violet-600" },
+    { name: "Cloud Server", icon: "☁️", color: "from-cyan-500 to-blue-500" },
+    { name: "MS Office", icon: "📊", color: "from-orange-500 to-amber-500" }
+  ];
+
+  const certifications = [
+    { name: "Computer Operator Certification", icon: "🏆", year: "2023" },
+    { name: "Multimedia Competency P1 BNSP", icon: "🎨", year: "2023" },
+    { name: "Multimedia Competency P2 BSrE", icon: "🎬", year: "2023" },
+    { name: "JavaScript Programming Dicoding", icon: "💻", year: "2024" },
+    { name: "Backend Development MySkill", icon: "⚙️", year: "2024" },
+    { name: "Java Complete Course Udemy", icon: "☕", year: "2024" }
+  ];
+  
+  // === BAGIAN YANG DIPERBARUI ===
   const workExperience = language === 'id' ? [
     {
       title: "Freelance Web Developer",
@@ -103,34 +184,34 @@ const CardLanding: React.FC = () => {
       period: "2024 - Sekarang",
       location: "Remote",
       description: [
-        "Mengembangkan situs web dan tools kustom secara end-to-end, mulai dari analisis kebutuhan klien, perancangan, pengembangan, hingga peluncuran",
-        "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL",
-        "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable)",
-        "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka",
-        "Menjamin kualitas, performa, dan keamanan aplikasi dengan melakukan pengujian, debugging, dan pemeliharaan secara rutin"
+        "Mengembangkan situs web dan tools kustom secara end-to-end, mulai dari analisis kebutuhan klien, perancangan, pengembangan, hingga peluncuran.",
+        "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL.",
+        "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable).",
+        "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka.",
+        "Menjamin kualitas, performa, dan keamanan aplikasi dengan melakukan pengujian, debugging, dan pemeliharaan secara rutin."
       ]
     },
     {
       title: "Teknisi IT",
       company: "Kelurahan Rawa Bunga Jakarta Timur",
-      period: "Desember 2024 - Januari 2025",
-      location: "Jakarta",
+      period: "Desember 2024 – Januari 2025",
+      location: "Jakarta Timur",
       description: [
-        "Mendiagnosis dan mengatasi masalah performa pada PC AIO Client, melakukan optimasi sistem dan software untuk meningkatkan kecepatan dan kelancaran",
-        "Melakukan instalasi dan konfigurasi PC serta printer, memastikan perangkat terhubung dengan baik dan siap digunakan untuk berbagai kebutuhan",
-        "Melakukan perbaikan laptop dari berbagai kerusakan, termasuk penggantian sparepart, instalasi ulang sistem operasi, hingga upgrade komponen untuk performa yang lebih baik",
-        "Mengidentifikasi dan menyelesaikan masalah IT dengan cepat dan efisien, mencegah masalah serupa terulang kembali"
+        "Mendiagnosis dan mengatasi masalah performa pada PC AIO Client, melakukan optimasi sistem dan software untuk meningkatkan kecepatan dan kelancaran.",
+        "Melakukan instalasi dan konfigurasi PC serta printer, memastikan perangkat terhubung dengan baik dan siap digunakan untuk berbagai kebutuhan.",
+        "Melakukan perbaikan laptop dari berbagai kerusakan, termasuk penggantian sparepart, instalasi ulang sistem operasi, hingga upgrade komponen untuk performa yang lebih baik.",
+        "Mengidentifikasi dan menyelesaikan masalah IT dengan cepat dan efisien, mencegah masalah serupa terulang kembali."
       ]
     },
     {
       title: "Asisten Direktur Music",
       company: "Radio Alaikassalam 95.5 FM",
-      period: "Januari 2022 - Maret 2022",
+      period: "Januari 2022 – Maret 2022",
       location: "Jakarta",
       description: [
-        "Merancang dan memproduksi insert radio untuk keperluan rekaman dan siaran",
-        "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional",
-        "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses"
+        "Merancang dan memproduksi insert radio untuk keperluan rekaman dan siaran.",
+        "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional.",
+        "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses."
       ]
     },
     {
@@ -139,22 +220,22 @@ const CardLanding: React.FC = () => {
       period: "Januari 2022",
       location: "Jakarta",
       description: [
-        "Mendiagnosis kerusakan yang terjadi pada Laptop dan Ponsel dengan kerusakan ringan",
-        "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain",
-        "Upgrade Komponen Laptop (RAM, SSD/HDD)",
-        "Instalasi Sistem Operasi dan Aktivasi dan mengoptimalkannya"
+        "Mendiagnosis kerusakan yang terjadi pada Laptop dan Ponsel dengan kerusakan ringan.",
+        "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain.",
+        "Upgrade Komponen Laptop (RAM, SSD/HDD).",
+        "Instalasi Sistem Operasi dan Aktivasi dan mengoptimalkannya."
       ]
     },
     {
-      title: "E-Commerce Manager",
+      title: "Pengelola E-Commerce",
       company: "Berbagai Platform",
       period: "Juli 2019",
-      location: "Jakarta",
+      location: "Online",
       description: [
-        "Berpengalaman dalam mengelola toko online di berbagai platform e-commerce dan media sosial, termasuk Shopee, Carousell, Tokopedia, dan Facebook Marketplace, baik untuk keperluan pribadi maupun bisnis",
-        "Bertanggung jawab atas seluruh operasional toko online, mulai dari mengunggah produk, memproses pesanan (mempacking dan mengirim barang sesuai jadwal), hingga memberikan pelayanan pelanggan yang responsif dan memuaskan",
-        "Mampu membuat deskripsi produk yang menarik dan lengkap untuk meningkatkan visibilitas produk di platform e-commerce dan menarik minat pembeli",
-        "Memahami dan menguasai berbagai fitur yang tersedia di masing-masing platform e-commerce dan media sosial untuk memaksimalkan efektivitas penjualan dan pengelolaan toko online"
+        "Berpengalaman dalam mengelola toko online di berbagai platform e-commerce dan media sosial, termasuk Shopee, Carousell, Tokopedia, dan Facebook Marketplace, baik untuk keperluan pribadi maupun bisnis.",
+        "Bertanggung jawab atas seluruh operasional toko online, mulai dari mengunggah produk, memproses pesanan (mempacking dan mengirim barang sesuai jadwal), hingga memberikan pelayanan pelanggan yang responsif dan memuaskan.",
+        "Mampu membuat deskripsi produk yang menarik dan lengkap untuk meningkatkan visibilitas produk di platform e-commerce dan menarik minat pembeli.",
+        "Memahami dan menguasai berbagai fitur yang tersedia di masing-masing platform e-commerce dan media sosial untuk memaksimalkan efektivitas penjualan dan pengelolaan toko online."
       ]
     }
   ] : [
@@ -164,87 +245,125 @@ const CardLanding: React.FC = () => {
       period: "2024 - Present",
       location: "Remote",
       description: [
-        "Develop custom websites and tools end-to-end, from client needs analysis, design, development, to deployment",
-        "Translate client business needs into functional technical solutions using modern technologies like HTML, CSS, JavaScript, React.js, Node.js, and PostgreSQL",
-        "Design and build interfaces that are not only responsive across all devices, but also provide intuitive, engaging, and enjoyable user experiences",
-        "Provide positive impact for clients by improving work efficiency through developed tools and enhancing user interaction on their digital platforms",
-        "Ensure application quality, performance, and security through regular testing, debugging, and maintenance"
+        "Developing end-to-end custom websites and tools, from client needs analysis, design, development, to launch.",
+        "Translating client business needs into functional technical solutions using modern technologies like HTML, CSS, JavaScript, React.js, and Node.js, PostgreSQL.",
+        "Designing and building interfaces that are not only responsive across all devices but also provide an intuitive, engaging, and enjoyable user experience.",
+        "Providing a positive impact for clients by enhancing work efficiency through developed tools and improving user interaction on their digital platforms.",
+        "Ensuring application quality, performance, and security by conducting routine testing, debugging, and maintenance."
       ]
     },
     {
       title: "IT Technician",
-      company: "Kelurahan Rawa Bunga Jakarta Timur",
-      period: "December 2024 - January 2025",
-      location: "Jakarta",
+      company: "Rawa Bunga Village Office, East Jakarta",
+      period: "December 2024 – January 2025",
+      location: "East Jakarta",
       description: [
-        "Diagnose and resolve performance issues on PC AIO Client, perform system and software optimization to improve speed and smoothness",
-        "Install and configure PCs and printers, ensuring devices are properly connected and ready for various needs",
-        "Repair laptops from various damages, including spare part replacement, OS reinstallation, to component upgrades for better performance",
-        "Identify and resolve IT problems quickly and efficiently, preventing similar issues from recurring"
+        "Diagnosing and resolving performance issues on AIO Client PCs, performing system and software optimization to improve speed and smoothness.",
+        "Installing and configuring PCs and printers, ensuring devices are properly connected and ready for various needs.",
+        "Repairing laptops from various damages, including spare part replacement, operating system reinstallation, to component upgrades for better performance.",
+        "Identifying and resolving IT issues quickly and efficiently, preventing similar problems from recurring."
       ]
     },
     {
       title: "Assistant Music Director",
       company: "Radio Alaikassalam 95.5 FM",
-      period: "January 2022 - March 2022",
+      period: "January 2022 – March 2022",
       location: "Jakarta",
       description: [
-        "Design and produce radio inserts for recording and broadcasting purposes",
-        "Create informative and engaging company profile presentations, depicting company vision, mission, values and achievements professionally",
-        "Collaborate with company staff to manage and sort company documents, ensuring documents are well archived and easily accessible"
+        "Designing and producing radio inserts for recording and broadcasting purposes.",
+        "Creating informative and engaging company profile presentations, professionally outlining the company's vision, mission, values, and achievements.",
+        "Collaborating with company staff to manage and sort company documents, ensuring they are well-archived and easily accessible."
       ]
     },
     {
-      title: "Freelance Laptop & Phone Technician",
+      title: "Freelance Laptop & Mobile Technician",
       company: "Self-Employed",
       period: "January 2022",
       location: "Jakarta",
       description: [
-        "Diagnose damage occurring on Laptops and Phones with minor damage",
-        "Replace spare parts LCD, Flexible, Battery and others",
-        "Upgrade Laptop Components (RAM, SSD/HDD)",
-        "Install and activate Operating System and optimize it"
+        "Diagnosing minor damages on laptops and mobile phones.",
+        "Replacing spare parts such as LCDs, flex cables, batteries, and others.",
+        "Upgrading laptop components (RAM, SSD/HDD).",
+        "Installing, activating, and optimizing Operating Systems."
       ]
     },
     {
       title: "E-Commerce Manager",
       company: "Various Platforms",
       period: "July 2019",
-      location: "Jakarta",
+      location: "Online",
       description: [
-        "Experienced in managing online stores on various e-commerce platforms and social media, including Shopee, Carousell, Tokopedia, and Facebook Marketplace, for both personal and business purposes",
-        "Responsible for entire online store operations, from uploading products, processing orders (packing and shipping goods on schedule), to providing responsive and satisfying customer service",
-        "Able to create attractive and complete product descriptions to increase product visibility on e-commerce platforms and attract buyer interest",
-        "Understand and master various features available on each e-commerce platform and social media to maximize sales effectiveness and online store management"
+        "Experienced in managing online stores on various e-commerce and social media platforms, including Shopee, Carousell, Tokopedia, and Facebook Marketplace, for both personal and business purposes.",
+        "Responsible for all online store operations, from uploading products, processing orders (packing and shipping on schedule), to providing responsive and satisfactory customer service.",
+        "Able to create attractive and comprehensive product descriptions to increase product visibility on e-commerce platforms and attract buyer interest.",
+        "Understanding and mastering the various features available on each e-commerce and social media platform to maximize sales effectiveness and online store management."
       ]
     }
   ];
+  // === AKHIR BAGIAN YANG DIPERBARUI ===
 
-  const education = language === 'id' ? [
-    {
-      degree: "Teknik Informatika",
-      school: "Universitas Bina Sarana Informatika",
-      period: "2022 - Sekarang",
-      location: "Jakarta"
-    }
-  ] : [
-    {
-      degree: "Informatics Engineering",
-      school: "Bina Sarana Informatika University",
-      period: "2022 - Present",
-      location: "Jakarta"
-    }
-  ];
+  const education = {
+    degree: language === 'id' ? "S1 Teknik Informatika" : "Bachelor of Informatic Engineering",
+    institution: "Universitas Indraprasta PGRI",
+    period: language === 'id' ? "September 2023 - Sekarang" : "September 2023 - Present",
+    activities: language === 'id' ? [
+      "Mengerjakan Tugas Mata Kuliah Wajib Kurikulum Berbasis Proyek",
+      "Mengadakan Seminar Literasi Digital ke Sekolah dan Masyarakat",
+      "Bergabung dengan Komunitas BELAJAR BARENG yang dibuat oleh beberapa Mahasiswa",
+      "Membuat beberapa Website Tools sesuai permintaan Pengguna / Client",
+      "Membuat Bot WhatsApp untuk mendownload Materi dari LMS berdasarkan Prodi dan Mata Kuliah"
+    ] : [
+      "Completing project-based curriculum assignments",
+      "Organizing Digital Literacy Seminars for schools and communities",
+      "Joining the BELAJAR BARENG community created by students",
+      "Building website tools based on user/client requests",
+      "Creating a WhatsApp Bot for downloading LMS materials by program and subject"
+    ]
+  };
 
-  const techIcons = [
-    { name: 'React', icon: '⚛️', x: 10, y: 20 },
-    { name: 'JavaScript', icon: '⚡', x: 80, y: 10 },
-    { name: 'TypeScript', icon: '🔷', x: 20, y: 70 },
-    { name: 'Node.js', icon: '🟢', x: 90, y: 60 },
-    { name: 'CSS', icon: '🎨', x: 60, y: 30 },
-    { name: 'HTML', icon: '📄', x: 30, y: 50 },
-    { name: 'Git', icon: '📝', x: 70, y: 80 },
-    { name: 'Database', icon: '🗄️', x: 50, y: 15 }
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "dandiedutech@gmail.com",
+      link: "mailto:dandiedutech@gmail.com",
+      gradient: "from-red-500 to-pink-500"
+    },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "089636035164",
+      link: "https://wa.me/6289636035164",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Jakarta Timur, Indonesia",
+      link: "",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "dandisubhani",
+      link: "https://linkedin.com/in/dandisubhani",
+      gradient: "from-blue-600 to-indigo-600"
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      value: "@dandisubhani_",
+      link: "https://instagram.com/dandisubhani_",
+      gradient: "from-pink-500 to-purple-500"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "@dandiedutech",
+      link: "https://github.com/dandiedutech",
+      gradient: "from-gray-600 to-gray-800"
+    }
   ];
 
   const renderContent = () => {
@@ -255,113 +374,115 @@ const CardLanding: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <div className="text-center space-y-4">
-              <div className="relative mx-auto w-32 h-32 lg:w-40 lg:h-40">
-                <img
-                  src="https://files.catbox.moe/i4vpso.jpg"
+            <div className="text-center space-y-3 md:space-y-4">
+              <motion.div 
+                className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-500/20"
+                whileHover={{ scale: 1.05 }}
+              >
+                <img 
+                  src="https://files.catbox.moe/i4vpso.jpg" 
                   alt="Ahmad Dandi Subhani"
-                  className="w-full h-full rounded-full object-cover shadow-lg ring-4 ring-blue-500/20 hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 to-purple-500/20"></div>
-              </div>
+              </motion.div>
               
-              <div className="space-y-2">
-                <motion.h1 
-                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
+              <motion.h1 
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  className="inline-block"
                 >
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    Ahmad
-                  </motion.span>{' '}
-                  <motion.span
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    Dandi
-                  </motion.span>{' '}
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
-                  >
-                    Subhani
-                  </motion.span>
-                </motion.h1>
-                
-                <div className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 h-8">
-                  <TypeAnimation
-                    sequence={[
-                      language === 'id' ? 'Mahasiswa Teknik Informatika' : 'Informatics Engineering Student',
-                      2000,
-                      language === 'id' ? 'Spesialis IT' : 'IT Specialist',
-                      2000,
-                      language === 'id' ? 'Web Developer' : 'Web Developer',
-                      2000,
-                      language === 'id' ? 'Freelancer' : 'Freelancer',
-                      2000,
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                </div>
+                  Ahmad
+                </motion.span>
+                {" "}
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                >
+                  Dandi
+                </motion.span>
+                {" "}
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                  className="inline-block"
+                >
+                  Subhani
+                </motion.span>
+              </motion.h1>
+              
+              <div className="inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 rounded-full bg-green-500/20 border border-green-500/30 text-green-600 dark:text-green-400">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-xs md:text-sm font-medium">
+                  {language === 'id' ? 'Tersedia untuk bekerja' : 'Available for work'}
+                </span>
               </div>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
+                <TypeAnimation
+                  sequence={[
+                    language === 'id' ? 'Mahasiswa Teknik Informatika' : 'Informatic Engineering Student', 2000,
+                    language === 'id' ? 'IT Specialist' : 'IT Specialist', 2000,
+                    language === 'id' ? 'Web Developer' : 'Web Developer', 2000,
+                    language === 'id' ? 'Freelancer' : 'Freelancer', 2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </p>
             </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 lg:p-6">
-              <p className="text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            
+            <div className="bg-gray-50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
                 {language === 'id' 
-                  ? "Saya adalah mahasiswa Teknik Informatika yang passionate dalam pengembangan web dan teknologi. Dengan pengalaman sebagai freelance web developer dan teknisi IT, saya selalu antusias untuk belajar teknologi baru dan menciptakan solusi inovatif."
-                  : "I am an Informatics Engineering student passionate about web development and technology. With experience as a freelance web developer and IT technician, I am always enthusiastic about learning new technologies and creating innovative solutions."
+                  ? "Mahasiswa Teknik Informatika Universitas Indraprasta PGRI dengan minat mendalam di bidang IT Support dan Helpdesk. Passionate tentang teknologi dan pemecahan masalah dengan pengalaman dalam pengembangan web dan sistem informasi."
+                  : "Informatic Engineering Student at Universitas Indraprasta PGRI with deep interest in IT Support and Helpdesk. Passionate about technology and problem-solving with experience in web development and information systems."
                 }
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <motion.a
-                href="/cv.pdf"
-                download
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                href="/dandi-cv.pdf"
+                download="Ahmad_Dandi_Subhani_CV.pdf"
+                className="flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-semibold transition-all duration-300 text-sm md:text-base"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Download className="w-4 h-4 lg:w-5 lg:h-5" />
-                <span className="text-sm lg:text-base">Download CV</span>
+                <Download className="w-4 h-4 md:w-5 md:h-5" />
+                {language === 'id' ? 'Unduh CV' : 'Download CV'}
               </motion.a>
               
-              <motion.a
-                href="https://github.com/ahmaddandi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github className="w-4 h-4 lg:w-5 lg:h-5" />
-                <span className="text-sm lg:text-base">GitHub</span>
-              </motion.a>
-              
-              <motion.a
-                href="https://linkedin.com/in/ahmaddandi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Linkedin className="w-4 h-4 lg:w-5 lg:h-5" />
-                <span className="text-sm lg:text-base">LinkedIn</span>
-              </motion.a>
+              <div className="flex gap-2 md:gap-3 justify-center">
+                {[
+                  { icon: Github, href: "https://github.com/dandiedutech", label: "GitHub" },
+                  { icon: Linkedin, href: "https://linkedin.com/in/dandisubhani", label: "LinkedIn" },
+                  { icon: Instagram, href: "https://instagram.com/dandisubhani_", label: "Instagram" }
+                ].map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 md:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <social.icon className="w-4 h-4 md:w-5 md:h-5 text-gray-700 dark:text-gray-300" />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </motion.div>
         );
@@ -372,55 +493,54 @@ const CardLanding: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white text-center">
-              {language === 'id' ? 'Proyek Terbaru' : 'Latest Projects'}
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
+              {language === 'id' ? 'Proyek Unggulan' : 'Featured Projects'}
             </h2>
-            
-            <div className="grid gap-4 lg:gap-6">
+            <div className="grid gap-3 md:gap-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                  className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ y: -2 }}
                 >
-                  <div className="flex flex-col lg:flex-row gap-4">
-                    <div className="lg:w-1/3">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-32 lg:h-24 object-cover rounded-lg"
-                      />
+                  <div className="flex flex-col md:flex-row">
+                    <div className="md:w-1/3">
+                      {project.image ? (
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-32 md:h-full object-cover"
+                        />
+                      ) : (
+                        <div className={`h-32 md:h-full bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                          <Code className="w-8 h-8 text-white" />
+                        </div>
+                      )}
                     </div>
-                    
-                    <div className="lg:w-2/3 space-y-3">
-                      <div className="flex items-start justify-between">
-                        <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white">
-                          {project.title}
-                        </h3>
+                    <div className="flex-1 p-4 md:p-6">
+                      <div className="flex justify-between items-start mb-2 md:mb-3">
+                        <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white pr-2">{project.title}</h3>
                         <motion.a
-                          href={project.link}
-                          className="text-blue-600 hover:text-blue-700 dark:text-blue-400"
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors flex-shrink-0"
                           whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
                         >
-                          <ExternalLink className="w-5 h-5" />
+                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
                         </motion.a>
                       </div>
-                      
-                      <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2">
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{project.description}</p>
+                      <div className="flex flex-wrap gap-1 md:gap-2">
                         {project.tech.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-1 lg:px-3 lg:py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs lg:text-sm rounded-full"
+                            className="px-2 py-1 md:px-3 md:py-1 bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-full text-xs"
                           >
                             {tech}
                           </span>
@@ -440,76 +560,102 @@ const CardLanding: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white text-center">
-              {language === 'id' ? 'Keahlian & Kemampuan' : 'Skills & Abilities'}
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
+              {language === 'id' ? 'Keahlian & Expertise' : 'Skills & Expertise'}
             </h2>
             
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                  {language === 'id' ? 'Keahlian Teknis' : 'Technical Skills'}
+            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
+              {/* Technical Skills */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Code className="w-5 h-5 text-blue-500" />
+                  {language === 'id' ? 'Keterampilan Teknis' : 'Technical Skills'}
                 </h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                  {skills.technical.map((skill, index) => (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+                  {technicalSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white dark:bg-gray-800 p-3 lg:p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center border border-gray-200 dark:border-gray-700"
-                      initial={{ opacity: 0, scale: 0.9 }}
+                      className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 md:p-4 text-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-2xl lg:text-3xl mb-2">{skill.icon}</div>
-                      <div className="text-sm lg:text-base font-medium text-gray-800 dark:text-white">
-                        {skill.name}
-                      </div>
+                      <img src={skill.icon} alt={skill.name} className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2" />
+                      <span className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                  {language === 'id' ? 'Soft Skills' : 'Soft Skills'}
+              {/* Soft Skills */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Users className="w-5 h-5 text-green-500" />
+                  {language === 'id' ? 'Keterampilan Non-Teknis' : 'Soft Skills'}
                 </h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                  {skills.soft.map((skill, index) => (
+                <div className="space-y-2 md:space-y-3">
+                  {softSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white dark:bg-gray-800 p-3 lg:p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center border border-gray-200 dark:border-gray-700"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
-                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02 }}
                     >
-                      <div className="text-2xl lg:text-3xl mb-2">{skill.icon}</div>
-                      <div className="text-sm lg:text-base font-medium text-gray-800 dark:text-white">
-                        {skill.name}
-                      </div>
+                      <span className="text-lg md:text-xl">{skill.icon}</span>
+                      <span className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-3">
-                  {language === 'id' ? 'Tools & Software' : 'Tools & Software'}
+              {/* System & Tools */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-orange-500" />
+                  {language === 'id' ? 'Sistem & Tools' : 'System & Tools'}
                 </h3>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                  {skills.tools.map((tool, index) => (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+                  {systemSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white dark:bg-gray-800 p-3 lg:p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-center border border-gray-200 dark:border-gray-700"
-                      initial={{ opacity: 0, scale: 0.9 }}
+                      className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-2xl lg:text-3xl mb-2">{tool.icon}</div>
-                      <div className="text-sm lg:text-base font-medium text-gray-800 dark:text-white">
-                        {tool.name}
+                      <span className="text-lg md:text-xl mb-2 block">{skill.icon}</span>
+                      <span className="text-gray-900 dark:text-white font-medium text-xs">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-purple-500" />
+                  {language === 'id' ? 'Sertifikasi' : 'Certifications'}
+                </h3>
+                <div className="space-y-2 md:space-y-3">
+                  {certifications.map((cert, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <span className="text-lg md:text-xl">{cert.icon}</span>
+                      <div className="flex-1">
+                        <div className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{cert.name}</div>
+                        <div className="text-gray-500 dark:text-gray-400 text-xs">{cert.year}</div>
                       </div>
                     </motion.div>
                   ))}
@@ -525,96 +671,73 @@ const CardLanding: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
               {language === 'id' ? 'Pengalaman & Pendidikan' : 'Experience & Education'}
             </h2>
             
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                  <Briefcase className="w-5 h-5" />
-                  {language === 'id' ? 'Pengalaman Kerja' : 'Work Experience'}
+            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
+              {/* Education */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5 text-indigo-500" />
+                  {language === 'id' ? 'Pendidikan' : 'Education'}
                 </h3>
-                
-                <div className="space-y-4 max-h-64 lg:max-h-80 overflow-y-auto scrollbar-hide">
-                  {workExperience.map((exp, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-3">
-                        <div>
-                          <h4 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">
-                            {exp.title}
-                          </h4>
-                          <p className="text-sm lg:text-base text-blue-600 dark:text-blue-400 font-medium">
-                            {exp.company}
-                          </p>
-                        </div>
-                        <div className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 mt-1 lg:mt-0 lg:text-right">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3 lg:w-4 lg:h-4" />
-                            {exp.period}
-                          </div>
-                          <div className="flex items-center gap-1 mt-1">
-                            <MapPin className="w-3 h-3 lg:w-4 lg:h-4" />
-                            {exp.location}
-                          </div>
-                        </div>
+                <div className="space-y-3 md:space-y-4">
+                  <div>
+                    <h4 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">{education.degree}</h4>
+                    <p className="text-blue-600 dark:text-blue-400 text-sm md:text-base">{education.institution}</p>
+                    <div className="flex items-center gap-2 mt-2">
+                      <Calendar className="w-4 h-4 text-gray-500" />
+                      <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{education.period}</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    {education.activities.map((activity, index) => (
+                      <div key={index} className="flex items-start gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0" />
+                        <span>{activity}</span>
                       </div>
-                      
-                      <ul className="space-y-1 text-xs lg:text-sm text-gray-600 dark:text-gray-300">
-                        {exp.description.map((desc, descIndex) => (
-                          <li key={descIndex} className="flex items-start gap-2">
-                            <span className="text-blue-500 mt-1 flex-shrink-0">•</span>
-                            <span>{desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-lg lg:text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5" />
-                  {language === 'id' ? 'Pendidikan' : 'Education'}
+              {/* Work Experience */}
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Briefcase className="w-5 h-5 text-blue-500" />
+                  {language === 'id' ? 'Pengalaman Kerja' : 'Work Experience'}
                 </h3>
-                
-                <div className="space-y-4">
-                  {education.map((edu, index) => (
+                <div className="space-y-4 md:space-y-6">
+                  {workExperience.map((job, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700"
+                      className="border-l-2 border-blue-500/30 pl-4 md:pl-6 pb-4 md:pb-6"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
+                      transition={{ delay: index * 0.2 }}
                     >
-                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                        <div>
-                          <h4 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">
-                            {edu.degree}
-                          </h4>
-                          <p className="text-sm lg:text-base text-blue-600 dark:text-blue-400 font-medium">
-                            {edu.school}
-                          </p>
+                      <h4 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">{job.title}</h4>
+                      <p className="text-blue-600 dark:text-blue-400 text-sm md:text-base font-medium">{job.company}</p>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2 mb-3">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-3 h-3 md:w-4 md:h-4 text-gray-500" />
+                          <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.period}</span>
                         </div>
-                        <div className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 mt-1 lg:mt-0 lg:text-right">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3 lg:w-4 lg:h-4" />
-                            {edu.period}
-                          </div>
-                          <div className="flex items-center gap-1 mt-1">
-                            <MapPin className="w-3 h-3 lg:w-4 lg:h-4" />
-                            {edu.location}
-                          </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-3 h-3 md:w-4 md:h-4 text-gray-500" />
+                          <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.location}</span>
                         </div>
+                      </div>
+                      <div className="space-y-2">
+                        {job.description.map((desc, descIndex) => (
+                          <div key={descIndex} className="flex items-start gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                            <span className="leading-relaxed">{desc}</span>
+                          </div>
+                        ))}
                       </div>
                     </motion.div>
                   ))}
@@ -630,108 +753,58 @@ const CardLanding: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white text-center">
-              {language === 'id' ? 'Hubungi Saya' : 'Get In Touch'}
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
+              {language === 'id' ? 'Mari Terhubung' : 'Get In Touch'}
             </h2>
             
-            <div className="text-center">
-              <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 mb-6">
-                {language === 'id' 
-                  ? "Tertarik untuk berkolaborasi? Mari kita diskusikan proyek Anda!"
-                  : "Interested in collaborating? Let's discuss your project!"
-                }
-              </p>
-            </div>
+            <div className="space-y-3 md:space-y-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
+              {contactInfo.map((info, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -2 }}
+                >
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <div className={`p-2 md:p-3 rounded-lg bg-gradient-to-br ${info.gradient} shadow-lg`}>
+                      <info.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-sm md:text-base">{info.label}</h4>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 font-medium text-xs md:text-sm break-all"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <span className="text-gray-600 dark:text-gray-300 font-medium text-xs md:text-sm">{info.value}</span>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
 
-            <div className="grid gap-4 lg:gap-6">
               <motion.a
-                href="mailto:ahmaddandisubhani@gmail.com"
-                className="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full">
-                  <Mail className="w-6 h-6 text-red-600 dark:text-red-400" />
-                </div>
-                <div>
-                  <h3 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">Email</h3>
-                  <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">ahmaddandisubhani@gmail.com</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 ml-auto" />
-              </motion.a>
-
-              <motion.a
-                href="https://wa.me/6285156123456"
+                href="https://wa.me/6289636035164"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 md:px-6 md:py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-300 text-sm md:text-base"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
               >
-                <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full">
-                  <MessageCircle className="w-6 h-6 text-green-600 dark:text-green-400" />
-                </div>
-                <div>
-                  <h3 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">WhatsApp</h3>
-                  <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">+62 851-5612-3456</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 ml-auto" />
-              </motion.a>
-
-              <motion.a
-                href="tel:+6285156123456"
-                className="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full">
-                  <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">
-                    {language === 'id' ? 'Telepon' : 'Phone'}
-                  </h3>
-                  <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">+62 851-5612-3456</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 ml-auto" />
-              </motion.a>
-
-              <motion.a
-                href="https://linkedin.com/in/ahmaddandi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full">
-                  <Linkedin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">LinkedIn</h3>
-                  <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">linkedin.com/in/ahmaddandi</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 ml-auto" />
-              </motion.a>
-
-              <motion.a
-                href="https://instagram.com/ahmaddandi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 lg:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="bg-pink-100 dark:bg-pink-900/30 p-3 rounded-full">
-                  <Instagram className="w-6 h-6 text-pink-600 dark:text-pink-400" />
-                </div>
-                <div>
-                  <h3 className="text-base lg:text-lg font-semibold text-gray-800 dark:text-white">Instagram</h3>
-                  <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300">@ahmaddandi</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-gray-400 ml-auto" />
+                <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
+                {language === 'id' ? 'Kirim Pesan WhatsApp' : 'Send WhatsApp Message'}
               </motion.a>
             </div>
           </motion.div>
@@ -743,38 +816,45 @@ const CardLanding: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${
-      theme === 'dark' 
-        ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900' 
-        : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50'
-    } relative overflow-hidden`}>
-      
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Tech Stack Icons */}
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-3 md:p-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+      {/* Animated Tech Stack Background */}
+      <div className="absolute inset-0">
         {techIcons.map((tech, index) => (
           <motion.div
             key={index}
-            className="absolute text-2xl lg:text-4xl opacity-10 dark:opacity-5"
-            style={{ left: `${tech.x}%`, top: `${tech.y}%` }}
+            className="absolute opacity-5 dark:opacity-10"
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            }}
             animate={{
-              y: [0, -20, 0],
+              x: [
+                Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+                Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+                Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+              ],
+              y: [
+                Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+                Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+              ],
               rotate: [0, 360],
-              scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 6 + index,
+              duration: 20 + Math.random() * 10,
               repeat: Infinity,
-              ease: "easeInOut",
+              ease: "linear",
             }}
           >
-            {tech.icon}
+            <img src={tech.icon} alt={tech.name} className="w-6 h-6 md:w-8 md:h-8 lg:w-12 lg:h-12" />
           </motion.div>
         ))}
-        
-        {/* Geometric Shapes */}
+      </div>
+
+      {/* Abstract Geometric Shapes */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 lg:w-48 lg:h-48 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
+          className="absolute top-1/4 left-1/4 w-32 h-32 md:w-64 md:h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -786,162 +866,105 @@ const CardLanding: React.FC = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-24 h-24 lg:w-36 lg:h-36 bg-gradient-to-r from-pink-400/20 to-blue-400/20 rounded-full blur-xl"
+          className="absolute bottom-1/4 right-1/4 w-40 h-40 md:w-80 md:h-80 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.6, 0.3, 0.6],
+            opacity: [0.2, 0.5, 0.2],
           }}
           transition={{
-            duration: 6,
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen p-4 lg:p-8">
-        <div className="w-full max-w-4xl lg:max-w-6xl xl:max-w-7xl">
-          
-          {/* Header with Logo and Controls */}
-          <motion.div
-            className="flex items-center justify-between mb-6 lg:mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            {/* Logo */}
-            <motion.div 
-              className="flex items-center gap-3"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div
-                className="relative"
-                animate={{
-                  background: [
-                    'linear-gradient(45deg, #3b82f6, #8b5cf6)',
-                    'linear-gradient(45deg, #8b5cf6, #ec4899)',
-                    'linear-gradient(45deg, #ec4899, #3b82f6)',
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                style={{
-                  background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
-                }}
-                className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center text-white font-bold text-lg lg:text-xl shadow-lg relative overflow-hidden"
+      {/* Main Card */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative z-10 w-full max-w-6xl mx-auto"
+      >
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl overflow-hidden">
+          {/* Header */}
+          <div className="flex justify-between items-center p-4 md:p-6 border-b border-gray-200/50 dark:border-gray-700/50">
+            <div className="flex items-center gap-2 md:gap-3">
+              <motion.div 
+                className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm md:text-base"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-radial from-white/30 to-transparent"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                
-                {/* Floating particles */}
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 bg-white/60 rounded-full"
-                    animate={{
-                      x: [0, 10, -10, 0],
-                      y: [0, -10, 10, 0],
-                      opacity: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                    }}
-                    style={{
-                      left: `${20 + i * 20}%`,
-                      top: `${20 + i * 20}%`,
-                    }}
-                  />
-                ))}
-                
-                <span className="relative z-10">DS</span>
+                DS
               </motion.div>
-              
-              <motion.span
-                className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                Portfolio
-              </motion.span>
-            </motion.div>
-
-            {/* Controls */}
-            <div className="flex items-center gap-2 lg:gap-3">
-              <motion.button
-                onClick={toggleLanguage}
-                className="px-3 py-2 lg:px-4 lg:py-2 bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg text-sm lg:text-base font-medium text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/50 transition-all duration-300 border border-white/20 dark:border-gray-700"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {language === 'id' ? 'EN' : 'ID'}
-              </motion.button>
+              <span className="text-gray-900 dark:text-white font-semibold text-sm md:text-base">Portfolio</span>
+            </div>
+            
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm font-medium transition-all ${
+                    language === 'en' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-600 dark:text-gray-400'
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage('id')}
+                  className={`px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm font-medium transition-all ${
+                    language === 'id' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-600 dark:text-gray-400'
+                  }`}
+                >
+                  ID
+                </button>
+              </div>
               
               <motion.button
                 onClick={toggleTheme}
-                className="p-2 lg:p-3 bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg text-gray-800 dark:text-white hover:bg-white/30 dark:hover:bg-gray-700/50 transition-all duration-300 border border-white/20 dark:border-gray-700"
+                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {theme === 'light' ? 
+                  <Moon className="w-4 h-4 text-gray-600 dark:text-gray-300" /> : 
+                  <Sun className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                }
               </motion.button>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Main Card */}
-          <motion.div
-            className="bg-white/10 dark:bg-gray-900/30 backdrop-blur-xl rounded-2xl lg:rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Content Area */}
-            <div className="p-6 lg:p-8 min-h-[500px] lg:min-h-[650px]">
-              <AnimatePresence mode="wait">
-                {renderContent()}
-              </AnimatePresence>
-            </div>
+          {/* Content */}
+          <div className="p-4 md:p-6 min-h-[500px] md:min-h-[600px]">
+            <AnimatePresence mode="wait">
+              {renderContent()}
+            </AnimatePresence>
+          </div>
 
-            {/* Navigation */}
-            <div className="border-t border-white/20 dark:border-gray-700/50 bg-white/5 dark:bg-gray-800/20 backdrop-blur-sm">
-              <div className="flex w-full max-w-md mx-auto">
-                {tabs.map((tab) => {
-                  const Icon = tab.icon;
-                  return (
-                    <motion.button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`flex-1 flex flex-col items-center gap-1 lg:gap-2 py-3 lg:py-4 px-2 transition-all duration-300 ${
-                        activeTab === tab.id
-                          ? 'text-blue-600 dark:text-blue-400 bg-white/10 dark:bg-blue-900/20'
-                          : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Icon className="w-5 h-5 lg:w-6 lg:h-6" />
-                      <span className="text-xs lg:text-sm font-medium">{tab.label}</span>
-                      {activeTab === tab.id && (
-                        <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
-                          layoutId="activeTab"
-                        />
-                      )}
-                    </motion.button>
-                  );
-                })}
+          {/* Bottom Navigation */}
+          <div className="border-t border-gray-200/50 dark:border-gray-700/50 p-3 md:p-4">
+            <div className="flex justify-center">
+              <div className="flex gap-1 md:gap-2 bg-gray-50 dark:bg-gray-800 rounded-xl p-1 md:p-2 backdrop-blur-sm overflow-x-auto scrollbar-hide">
+                {navigationItems.map((item) => (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => setActiveTab(item.id)}
+                    className={`flex flex-col items-center gap-1 px-3 py-2 md:px-4 md:py-3 rounded-lg font-medium transition-all whitespace-nowrap min-w-[60px] md:min-w-[80px] ${
+                      activeTab === item.id
+                        ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/30'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <item.icon className="w-4 h-4 md:w-5 md:h-5" />
+                    <span className="text-xs md:text-sm">{item.label}</span>
+                  </motion.button>
+                ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
