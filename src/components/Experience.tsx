@@ -34,10 +34,9 @@ const Experience: React.FC = () => {
         "Mengembangkan situs web dan tools kustom secara end-to-end, mulai dari analisis kebutuhan klien, perancangan, pengembangan, hingga peluncuran",
         "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL",
         "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable)",
-        "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka",
-        "Menjamin kualitas, performa, dan keamanan aplikasi dengan melakukan pengujian, debugging, dan pemeliharaan secara rutin"
+        "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka"
       ],
-      gradient: "from-blue-500 to-cyan-500"
+      color: "bg-blue-500"
     },
     {
       title: "Teknisi IT",
@@ -50,7 +49,7 @@ const Experience: React.FC = () => {
         "Melakukan perbaikan laptop dari berbagai kerusakan, termasuk penggantian sparepart, instalasi ulang sistem operasi, hingga upgrade komponen untuk performa yang lebih baik",
         "Mengidentifikasi dan menyelesaikan masalah IT dengan cepat dan efisien, mencegah masalah serupa terulang kembali"
       ],
-      gradient: "from-green-500 to-emerald-500"
+      color: "bg-green-500"
     },
     {
       title: "Asisten Direktur Music",
@@ -62,7 +61,7 @@ const Experience: React.FC = () => {
         "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional",
         "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses"
       ],
-      gradient: "from-yellow-500 to-orange-500"
+      color: "bg-yellow-500"
     },
     {
       title: "Freelance Teknisi Laptop & Ponsel",
@@ -75,7 +74,7 @@ const Experience: React.FC = () => {
         "Upgrade Komponen Laptop (RAM, SSD/HDD)",
         "Instalasi Sistem Operasi dan Aktivasi dan mengoptimalkannya"
       ],
-      gradient: "from-purple-500 to-pink-500"
+      color: "bg-purple-500"
     },
     {
       title: "Mengelola E-Commerce",
@@ -88,7 +87,7 @@ const Experience: React.FC = () => {
         "Mampu membuat deskripsi produk yang menarik dan lengkap untuk meningkatkan visibilitas produk di platform e-commerce dan menarik minat pembeli",
         "Memahami dan menguasai berbagai fitur yang tersedia di masing-masing platform e-commerce dan media sosial untuk memaksimalkan efektivitas penjualan dan pengelolaan toko online"
       ],
-      gradient: "from-pink-500 to-rose-500"
+      color: "bg-pink-500"
     }
   ] : [
     {
@@ -100,10 +99,9 @@ const Experience: React.FC = () => {
         "Developing end-to-end websites and custom tools from client requirement analysis to launch",
         "Translating business needs into functional technical solutions using HTML, CSS, JavaScript, React.js, Node.js, and PostgreSQL",
         "Designing responsive interfaces that provide intuitive, engaging user experiences across all devices",
-        "Delivering positive impact by improving work efficiency and user interaction on digital platforms",
-        "Ensuring quality, performance, and security through regular testing, debugging, and maintenance"
+        "Delivering positive impact by improving work efficiency and user interaction on digital platforms"
       ],
-      gradient: "from-blue-500 to-cyan-500"
+      color: "bg-blue-500"
     },
     {
       title: "IT Technician",
@@ -116,7 +114,7 @@ const Experience: React.FC = () => {
         "Repaired laptops with various damages including spare part replacement, OS reinstallation, and component upgrades",
         "Identified and resolved IT issues quickly and efficiently, preventing similar problems from recurring"
       ],
-      gradient: "from-green-500 to-emerald-500"
+      color: "bg-green-500"
     },
     {
       title: "Assistant Music Director",
@@ -128,7 +126,7 @@ const Experience: React.FC = () => {
         "Created informative and engaging company profile presentations showcasing vision, mission, values, and achievements",
         "Collaborated with company staff to manage and organize corporate documents for easy access and archival"
       ],
-      gradient: "from-yellow-500 to-orange-500"
+      color: "bg-yellow-500"
     },
     {
       title: "Freelance Laptop & Mobile Technician",
@@ -141,7 +139,7 @@ const Experience: React.FC = () => {
         "Upgraded laptop components (RAM, SSD/HDD)",
         "Installed, activated, and optimized operating systems"
       ],
-      gradient: "from-purple-500 to-pink-500"
+      color: "bg-purple-500"
     },
     {
       title: "E-Commerce Manager",
@@ -154,135 +152,109 @@ const Experience: React.FC = () => {
         "Created compelling and comprehensive product descriptions to increase visibility and attract buyers",
         "Mastered various features of e-commerce platforms to maximize sales effectiveness and online store management"
       ],
-      gradient: "from-pink-500 to-rose-500"
+      color: "bg-pink-500"
     }
   ];
 
   return (
-    <section id="experience" className="pt-24 sm:pt-32 pb-20 sm:pb-32 relative overflow-hidden">
-      {/* Enhanced Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30 dark:from-gray-900 dark:via-gray-800/50 dark:to-blue-900/20">
-        <div className="absolute top-20 sm:top-40 left-4 sm:left-20 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 sm:bottom-40 right-4 sm:right-20 w-48 sm:w-64 h-48 sm:h-64 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 sm:mb-24 animate-fade-in-up">
-          <div className="inline-flex items-center px-6 py-3 rounded-2xl bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40 text-green-600 dark:text-green-400 text-sm sm:text-base font-semibold backdrop-blur-sm mb-6 border border-green-200/50 dark:border-green-700/50 shadow-lg">
-            <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-            {t('journeyLabel')}
+    <section id="experience" className="py-20 md:py-32 pb-24 md:pb-32">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 mb-6">
+            <Briefcase className="w-4 h-4" />
+            <span className="text-sm font-medium">{t('journeyLabel')}</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
-              {t('experienceEducation')}
-            </span>
+          
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            {t('experienceEducation')}
           </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+          
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             {t('experienceDesc')}
           </p>
         </div>
 
         {/* Education */}
-        <div className="mb-20 sm:mb-32">
-          <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center">
-              <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 mr-4 shadow-lg">
-                <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              {t('education')}
-            </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full"></div>
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 rounded-xl bg-indigo-100 dark:bg-indigo-900/30">
+              <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{t('education')}</h3>
           </div>
           
-          <div className="animate-fade-in-up max-w-5xl mx-auto">
-            <div className="relative p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[2rem] bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-900/90 backdrop-blur-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-[1.02] group">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-3xl sm:rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between mb-8">
-                  <div className="flex-1">
-                    <h4 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-                      {education.degree}
-                    </h4>
-                    <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 mb-6 font-medium">
-                      {education.institution}
-                    </p>
-                    <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-2xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-sm sm:text-base text-gray-700 dark:text-gray-300 font-semibold shadow-md">
-                      <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-indigo-500" />
-                      {education.period}
-                    </div>
-                  </div>
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 mt-6 xl:mt-0 xl:ml-8 flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-500 mx-auto xl:mx-0">
-                    <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
-                  </div>
-                </div>
-                
-                <div className="grid gap-4 sm:gap-6">
-                  {education.activities.map((activity, index) => (
-                    <div key={index} className="flex items-start group/item">
-                      <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-2 mr-4 sm:mr-6 flex-shrink-0 shadow-lg group-hover/item:scale-125 transition-transform duration-300"></div>
-                      <span className="text-gray-700 dark:text-gray-300 leading-relaxed text-base sm:text-lg font-medium group-hover/item:text-gray-900 dark:group-hover/item:text-white transition-colors duration-300">{activity}</span>
-                    </div>
-                  ))}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+              <div className="flex-1">
+                <h4 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  {education.degree}
+                </h4>
+                <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 font-medium">
+                  {education.institution}
+                </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium">
+                  <Calendar className="w-4 h-4 text-indigo-500" />
+                  {education.period}
                 </div>
               </div>
+            </div>
+            
+            <div className="space-y-3">
+              {education.activities.map((activity, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{activity}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Work Experience */}
         <div>
-          <div className="text-center mb-12 sm:mb-16">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center">
-              <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mr-4 shadow-lg">
-                <Briefcase className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-              </div>
-              {t('workExperience')}
-            </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30">
+              <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{t('workExperience')}</h3>
           </div>
           
-          <div className="space-y-8 sm:space-y-12 lg:space-y-16 max-w-6xl mx-auto">
+          <div className="space-y-8">
             {workExperience.map((job, index) => (
-              <div key={index} className="animate-fade-in-up group" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="relative p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[2rem] bg-gradient-to-br from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-900/90 backdrop-blur-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-[1.02]">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${job.gradient.replace('from-', 'from-').replace('to-', 'to-')}/5 rounded-3xl sm:rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between mb-8">
-                      <div className="flex-1">
-                        <h4 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 leading-tight">
-                          {job.title}
-                        </h4>
-                        <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 mb-6 font-semibold">
-                          {job.company}
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                          <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-2xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-sm sm:text-base text-gray-700 dark:text-gray-300 font-semibold shadow-md">
-                            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-500" />
-                            {job.period}
-                          </div>
-                          <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-2xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-sm sm:text-base text-gray-700 dark:text-gray-300 font-semibold shadow-md">
-                            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-green-500" />
-                            {job.location}
-                          </div>
-                        </div>
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                  <div className="flex-1">
+                    <h4 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      {job.title}
+                    </h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 font-semibold">
+                      {job.company}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium">
+                        <Calendar className="w-4 h-4 text-blue-500" />
+                        {job.period}
                       </div>
-                      <div className={`w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-3xl bg-gradient-to-br ${job.gradient} mt-6 xl:mt-0 xl:ml-8 flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-500 mx-auto xl:mx-0`}>
-                        <Briefcase className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium">
+                        <MapPin className="w-4 h-4 text-green-500" />
+                        {job.location}
                       </div>
-                    </div>
-                    
-                    <div className="grid gap-4 sm:gap-6">
-                      {job.description.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-start group/item">
-                          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 mr-4 sm:mr-6 flex-shrink-0 shadow-lg group-hover/item:scale-125 transition-transform duration-300"></div>
-                          <span className="text-gray-700 dark:text-gray-300 leading-relaxed text-base sm:text-lg font-medium group-hover/item:text-gray-900 dark:group-hover/item:text-white transition-colors duration-300">{item}</span>
-                        </div>
-                      ))}
                     </div>
                   </div>
+                  <div className={`w-16 h-16 rounded-xl ${job.color} mt-6 lg:mt-0 lg:ml-8 flex items-center justify-center mx-auto lg:mx-0`}>
+                    <Briefcase className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  {job.description.map((item, itemIndex) => (
+                    <div key={itemIndex} className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-gray-700 dark:text-gray-300 leading-relaxed">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
