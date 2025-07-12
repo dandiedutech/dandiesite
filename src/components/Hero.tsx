@@ -81,40 +81,39 @@ const Hero: React.FC = () => {
           
           {/* Main Content */}
           <div className="space-y-8 md:space-y-10">
-            
-            {/* Greeting Badge */}
-            <motion.div 
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200/50 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 backdrop-blur-sm"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.div 
-                className="w-3 h-3 bg-green-500 rounded-full"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [1, 0.7, 1]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity 
-                }}
-              />
-              <Sparkles className="w-4 h-4" />
-              <span className="text-sm font-semibold">Available for work</span>
-            </motion.div>
 
             {/* Name and Title */}
             <div className="space-y-6">
               <motion.h1 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 dark:text-white leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
                 variants={itemVariants}
               >
-                <span className="inline-block">Ahmad Dandi</span>{' '}
-                <span className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-600 bg-clip-text text-transparent">
-                  Subhani
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-600 bg-clip-text text-transparent">
+                  Ahmad Dandi Subhani
                 </span>
               </motion.h1>
+              
+              {/* Available for work badge - moved here */}
+              <motion.div 
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border border-green-200/50 dark:border-green-800/50 text-green-700 dark:text-green-300 backdrop-blur-sm"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div 
+                  className="w-3 h-3 bg-green-500 rounded-full"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [1, 0.7, 1]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity 
+                  }}
+                />
+                <Sparkles className="w-4 h-4" />
+                <span className="text-sm font-semibold">Available for work</span>
+              </motion.div>
               
               <motion.div 
                 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-600 dark:text-gray-400 h-16 flex items-center justify-center"

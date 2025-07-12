@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Calendar, Briefcase, GraduationCap, Sparkles } from 'lucide-react';
+import { MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 import { motion } from 'framer-motion';
 
@@ -36,8 +36,7 @@ const Experience: React.FC = () => {
         "Menerjemahkan kebutuhan bisnis klien menjadi solusi teknis yang fungsional menggunakan teknologi modern seperti HTML, CSS, JavaScript, React.js, dan Node.js, PostgreSQL",
         "Merancang dan membangun antarmuka yang tidak hanya responsif di semua perangkat, tetapi juga memberikan pengalaman pengguna yang intuitif, menarik, dan menyenangkan (engaging & enjoyable)",
         "Memberikan dampak positif bagi klien dengan meningkatkan efisiensi kerja melalui tools yang dikembangkan dan meningkatkan interaksi pengguna pada platform digital mereka"
-      ],
-      gradient: "from-blue-500 to-cyan-500"
+      ]
     },
     {
       title: "Teknisi IT",
@@ -49,8 +48,7 @@ const Experience: React.FC = () => {
         "Melakukan instalasi dan konfigurasi PC serta printer, memastikan perangkat terhubung dengan baik dan siap digunakan untuk berbagai kebutuhan",
         "Melakukan perbaikan laptop dari berbagai kerusakan, termasuk penggantian sparepart, instalasi ulang sistem operasi, hingga upgrade komponen untuk performa yang lebih baik",
         "Mengidentifikasi dan menyelesaikan masalah IT dengan cepat dan efisien, mencegah masalah serupa terulang kembali"
-      ],
-      gradient: "from-green-500 to-emerald-500"
+      ]
     },
     {
       title: "Asisten Direktur Music",
@@ -61,8 +59,7 @@ const Experience: React.FC = () => {
         "Merancang dan memproduksi insert radio untuk keperluan rekaman dan siaran",
         "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional",
         "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses"
-      ],
-      gradient: "from-yellow-500 to-orange-500"
+      ]
     },
     {
       title: "Freelance Teknisi Laptop & Ponsel",
@@ -74,8 +71,7 @@ const Experience: React.FC = () => {
         "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain",
         "Upgrade Komponen Laptop (RAM, SSD/HDD)",
         "Instalasi Sistem Operasi dan Aktivasi dan mengoptimalkannya"
-      ],
-      gradient: "from-purple-500 to-pink-500"
+      ]
     },
     {
       title: "Mengelola E-Commerce",
@@ -87,8 +83,7 @@ const Experience: React.FC = () => {
         "Bertanggung jawab atas seluruh operasional toko online, mulai dari mengunggah produk, memproses pesanan (mempacking dan mengirim barang sesuai jadwal), hingga memberikan pelayanan pelanggan yang responsif dan memuaskan",
         "Mampu membuat deskripsi produk yang menarik dan lengkap untuk meningkatkan visibilitas produk di platform e-commerce dan menarik minat pembeli",
         "Memahami dan menguasai berbagai fitur yang tersedia di masing-masing platform e-commerce dan media sosial untuk memaksimalkan efektivitas penjualan dan pengelolaan toko online"
-      ],
-      gradient: "from-pink-500 to-rose-500"
+      ]
     }
   ] : [
     {
@@ -101,8 +96,7 @@ const Experience: React.FC = () => {
         "Translating business needs into functional technical solutions using HTML, CSS, JavaScript, React.js, Node.js, and PostgreSQL",
         "Designing responsive interfaces that provide intuitive, engaging user experiences across all devices",
         "Delivering positive impact by improving work efficiency and user interaction on digital platforms"
-      ],
-      gradient: "from-blue-500 to-cyan-500"
+      ]
     },
     {
       title: "IT Technician",
@@ -114,8 +108,7 @@ const Experience: React.FC = () => {
         "Installed and configured PCs and printers, ensuring proper device connectivity for various operational needs",
         "Repaired laptops with various damages including spare part replacement, OS reinstallation, and component upgrades",
         "Identified and resolved IT issues quickly and efficiently, preventing similar problems from recurring"
-      ],
-      gradient: "from-green-500 to-emerald-500"
+      ]
     },
     {
       title: "Assistant Music Director",
@@ -126,8 +119,7 @@ const Experience: React.FC = () => {
         "Designed and produced radio inserts for recording and broadcasting purposes",
         "Created informative and engaging company profile presentations showcasing vision, mission, values, and achievements",
         "Collaborated with company staff to manage and organize corporate documents for easy access and archival"
-      ],
-      gradient: "from-yellow-500 to-orange-500"
+      ]
     },
     {
       title: "Freelance Laptop & Mobile Technician",
@@ -139,8 +131,7 @@ const Experience: React.FC = () => {
         "Replaced spare parts including LCD, flexible cables, batteries, and other components",
         "Upgraded laptop components (RAM, SSD/HDD)",
         "Installed, activated, and optimized operating systems"
-      ],
-      gradient: "from-purple-500 to-pink-500"
+      ]
     },
     {
       title: "E-Commerce Manager",
@@ -152,8 +143,7 @@ const Experience: React.FC = () => {
         "Handled complete online store operations from product uploads to order processing and customer service",
         "Created compelling and comprehensive product descriptions to increase visibility and attract buyers",
         "Mastered various features of e-commerce platforms to maximize sales effectiveness and online store management"
-      ],
-      gradient: "from-pink-500 to-rose-500"
+      ]
     }
   ];
 
@@ -275,12 +265,6 @@ const Experience: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <motion.div 
-                className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mt-6 lg:mt-0 lg:ml-8 flex items-center justify-center mx-auto lg:mx-0 shadow-lg"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-              >
-                <GraduationCap className="w-10 h-10 text-white" />
-              </motion.div>
             </div>
             
             <motion.div 
@@ -362,12 +346,6 @@ const Experience: React.FC = () => {
                       </motion.div>
                     </div>
                   </div>
-                  <motion.div 
-                    className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${job.gradient} mt-6 lg:mt-0 lg:ml-8 flex items-center justify-center mx-auto lg:mx-0 shadow-lg`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    <Briefcase className="w-10 h-10 text-white" />
-                  </motion.div>
                 </div>
                 
                 <div className="space-y-4">
