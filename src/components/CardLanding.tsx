@@ -70,7 +70,7 @@ const CardLanding: React.FC = () => {
       title: "UnindraFess",
       description: language === 'id' ? "Platform confess anonim untuk mahasiswa universitas dengan pesan real-time" : "Anonymous confession platform for university students with real-time messaging",
       url: "https://unindrafess.vercel.app",
-      image: "https://files.catbox.moe/xgdwn9.png",
+      image: "https://api.pikwy.com/web/68724e5d6e43f30d890cc5a1.jpg",
       tech: ["React", "Node.js", "PostgreSQL"],
       gradient: "from-green-500 to-emerald-500"
     },
