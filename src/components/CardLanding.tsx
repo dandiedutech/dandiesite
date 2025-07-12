@@ -20,7 +20,9 @@ import {
   GraduationCap,
   Sparkles,
   ArrowUpRight,
-  Send
+  Send,
+  Moon,
+  Sun
 } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 import { useTheme } from './ThemeContext';
@@ -323,27 +325,63 @@ const CardLanding: React.FC = () => {
           >
             <div className="text-center space-y-3 md:space-y-4">
               <motion.div 
-                className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl md:text-4xl font-bold shadow-2xl"
+                className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-500/20"
                 whileHover={{ scale: 1.05 }}
               >
-                ADS
+                <img 
+                  src="https://files.catbox.moe/i4vpso.jpg" 
+                  alt="Ahmad Dandi Subhani"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                Ahmad Dandi Subhani
-              </h1>
-              <div className="inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 rounded-full bg-green-500/20 border border-green-500/30 text-green-300">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              
+              <motion.h1 
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  className="inline-block"
+                >
+                  Ahmad
+                </motion.span>
+                {" "}
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                  className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                >
+                  Dandi
+                </motion.span>
+                {" "}
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                  className="inline-block"
+                >
+                  Subhani
+                </motion.span>
+              </motion.h1>
+              
+              <div className="inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 rounded-full bg-green-500/20 border border-green-500/30 text-green-600 dark:text-green-400">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 <span className="text-xs md:text-sm font-medium">
                   {language === 'id' ? 'Tersedia untuk bekerja' : 'Available for work'}
                 </span>
               </div>
-              <p className="text-lg md:text-xl text-gray-300">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
                 {language === 'id' ? 'Mahasiswa Teknik Informatika & IT Specialist' : 'Informatic Engineering Student & IT Specialist'}
               </p>
             </div>
             
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+            <div className="bg-gray-50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
                 {language === 'id' 
                   ? "Mahasiswa Teknik Informatika Universitas Indraprasta PGRI dengan minat mendalam di bidang IT Support dan Helpdesk. Passionate tentang teknologi dan pemecahan masalah dengan pengalaman dalam pengembangan web dan sistem informasi."
                   : "Informatic Engineering Student at Universitas Indraprasta PGRI with deep interest in IT Support and Helpdesk. Passionate about technology and problem-solving with experience in web development and information systems."
@@ -374,11 +412,11 @@ const CardLanding: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300"
+                    className="p-2 md:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <social.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                    <social.icon className="w-4 h-4 md:w-5 md:h-5 text-gray-700 dark:text-gray-300" />
                   </motion.a>
                 ))}
               </div>
@@ -394,14 +432,14 @@ const CardLanding: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
               {language === 'id' ? 'Proyek Unggulan' : 'Featured Projects'}
             </h2>
-            <div className="grid gap-3 md:gap-4 max-h-[400px] md:max-h-[500px] overflow-y-auto pr-2">
+            <div className="grid gap-3 md:gap-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+                  className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -423,7 +461,7 @@ const CardLanding: React.FC = () => {
                     </div>
                     <div className="flex-1 p-4 md:p-6">
                       <div className="flex justify-between items-start mb-2 md:mb-3">
-                        <h3 className="text-base md:text-lg font-semibold text-white pr-2">{project.title}</h3>
+                        <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white pr-2">{project.title}</h3>
                         <motion.a
                           href={project.url}
                           target="_blank"
@@ -431,15 +469,15 @@ const CardLanding: React.FC = () => {
                           className="p-2 bg-blue-500/20 hover:bg-blue-500/30 rounded-lg transition-colors flex-shrink-0"
                           whileHover={{ scale: 1.1 }}
                         >
-                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 text-blue-400" />
+                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 text-blue-600 dark:text-blue-400" />
                         </motion.a>
                       </div>
-                      <p className="text-gray-300 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{project.description}</p>
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{project.description}</p>
                       <div className="flex flex-wrap gap-1 md:gap-2">
                         {project.tech.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="px-2 py-1 md:px-3 md:py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs"
+                            className="px-2 py-1 md:px-3 md:py-1 bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-full text-xs"
                           >
                             {tech}
                           </span>
@@ -461,91 +499,91 @@ const CardLanding: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
               {language === 'id' ? 'Keahlian & Expertise' : 'Skills & Expertise'}
             </h2>
             
-            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto pr-2">
+            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
               {/* Technical Skills */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <Code className="w-5 h-5 text-blue-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Code className="w-5 h-5 text-blue-500" />
                   {language === 'id' ? 'Keterampilan Teknis' : 'Technical Skills'}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                   {technicalSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white/10 rounded-lg p-3 md:p-4 text-center hover:bg-white/20 transition-all duration-300"
+                      className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 md:p-4 text-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
                       <img src={skill.icon} alt={skill.name} className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-2" />
-                      <span className="text-white font-medium text-xs md:text-sm">{skill.name}</span>
+                      <span className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* Soft Skills */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-green-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Users className="w-5 h-5 text-green-500" />
                   {language === 'id' ? 'Keterampilan Non-Teknis' : 'Soft Skills'}
                 </h3>
                 <div className="space-y-2 md:space-y-3">
                   {softSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-center gap-3 p-3 md:p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300"
+                      className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                     >
                       <span className="text-lg md:text-xl">{skill.icon}</span>
-                      <span className="text-white font-medium text-xs md:text-sm">{skill.name}</span>
+                      <span className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* System & Tools */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <Wrench className="w-5 h-5 text-orange-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-orange-500" />
                   {language === 'id' ? 'Sistem & Tools' : 'System & Tools'}
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
                   {systemSkills.map((skill, index) => (
                     <motion.div
                       key={index}
-                      className="bg-white/10 rounded-lg p-3 text-center hover:bg-white/20 transition-all duration-300"
+                      className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-center hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.05 }}
                     >
                       <span className="text-lg md:text-xl mb-2 block">{skill.icon}</span>
-                      <span className="text-white font-medium text-xs">{skill.name}</span>
+                      <span className="text-gray-900 dark:text-white font-medium text-xs">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* Certifications */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-purple-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-purple-500" />
                   {language === 'id' ? 'Sertifikasi' : 'Certifications'}
                 </h3>
                 <div className="space-y-2 md:space-y-3">
                   {certifications.map((cert, index) => (
                     <motion.div
                       key={index}
-                      className="flex items-center gap-3 p-3 md:p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300"
+                      className="flex items-center gap-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
@@ -553,8 +591,8 @@ const CardLanding: React.FC = () => {
                     >
                       <span className="text-lg md:text-xl">{cert.icon}</span>
                       <div className="flex-1">
-                        <div className="text-white font-medium text-xs md:text-sm">{cert.name}</div>
-                        <div className="text-gray-400 text-xs">{cert.year}</div>
+                        <div className="text-gray-900 dark:text-white font-medium text-xs md:text-sm">{cert.name}</div>
+                        <div className="text-gray-500 dark:text-gray-400 text-xs">{cert.year}</div>
                       </div>
                     </motion.div>
                   ))}
@@ -572,30 +610,30 @@ const CardLanding: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
               {language === 'id' ? 'Pengalaman & Pendidikan' : 'Experience & Education'}
             </h2>
             
-            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto pr-2">
+            <div className="space-y-4 md:space-y-6 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
               {/* Education */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-indigo-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5 text-indigo-500" />
                   {language === 'id' ? 'Pendidikan' : 'Education'}
                 </h3>
                 <div className="space-y-3 md:space-y-4">
                   <div>
-                    <h4 className="text-base md:text-lg font-semibold text-white">{education.degree}</h4>
-                    <p className="text-blue-400 text-sm md:text-base">{education.institution}</p>
+                    <h4 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">{education.degree}</h4>
+                    <p className="text-blue-600 dark:text-blue-400 text-sm md:text-base">{education.institution}</p>
                     <div className="flex items-center gap-2 mt-2">
-                      <Calendar className="w-4 h-4 text-gray-400" />
-                      <span className="text-gray-300 text-xs md:text-sm">{education.period}</span>
+                      <Calendar className="w-4 h-4 text-gray-500" />
+                      <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{education.period}</span>
                     </div>
                   </div>
                   <div className="space-y-2">
                     {education.activities.map((activity, index) => (
-                      <div key={index} className="flex items-start gap-2 text-xs md:text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full mt-2 flex-shrink-0" />
+                      <div key={index} className="flex items-start gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2 flex-shrink-0" />
                         <span>{activity}</span>
                       </div>
                     ))}
@@ -604,36 +642,36 @@ const CardLanding: React.FC = () => {
               </div>
 
               {/* Work Experience */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-blue-400" />
+              <div className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <Briefcase className="w-5 h-5 text-blue-500" />
                   {language === 'id' ? 'Pengalaman Kerja' : 'Work Experience'}
                 </h3>
                 <div className="space-y-4 md:space-y-6">
                   {workExperience.map((job, index) => (
                     <motion.div
                       key={index}
-                      className="border-l-2 border-blue-400/30 pl-4 md:pl-6 pb-4 md:pb-6"
+                      className="border-l-2 border-blue-500/30 pl-4 md:pl-6 pb-4 md:pb-6"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.2 }}
                     >
-                      <h4 className="text-base md:text-lg font-semibold text-white">{job.title}</h4>
-                      <p className="text-blue-400 text-sm md:text-base font-medium">{job.company}</p>
+                      <h4 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white">{job.title}</h4>
+                      <p className="text-blue-600 dark:text-blue-400 text-sm md:text-base font-medium">{job.company}</p>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2 mb-3">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
-                          <span className="text-gray-300 text-xs md:text-sm">{job.period}</span>
+                          <Calendar className="w-3 h-3 md:w-4 md:h-4 text-gray-500" />
+                          <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.period}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
-                          <span className="text-gray-300 text-xs md:text-sm">{job.location}</span>
+                          <MapPin className="w-3 h-3 md:w-4 md:h-4 text-gray-500" />
+                          <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.location}</span>
                         </div>
                       </div>
                       <div className="space-y-2">
                         {job.description.map((desc, descIndex) => (
-                          <div key={descIndex} className="flex items-start gap-2 text-xs md:text-sm text-gray-300">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
+                          <div key={descIndex} className="flex items-start gap-2 text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                             <span className="leading-relaxed">{desc}</span>
                           </div>
                         ))}
@@ -654,15 +692,15 @@ const CardLanding: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-xl md:text-2xl font-bold text-white text-center">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
               {language === 'id' ? 'Mari Terhubung' : 'Get In Touch'}
             </h2>
             
-            <div className="space-y-3 md:space-y-4 max-h-[400px] md:max-h-[500px] overflow-y-auto pr-2">
+            <div className="space-y-3 md:space-y-4 max-h-[400px] md:max-h-[500px] overflow-y-auto scrollbar-hide pr-2">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="bg-white dark:bg-gray-800 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -673,18 +711,18 @@ const CardLanding: React.FC = () => {
                       <info.icon className="w-4 h-4 md:w-5 md:h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-white mb-1 text-sm md:text-base">{info.label}</h4>
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-1 text-sm md:text-base">{info.label}</h4>
                       {info.link ? (
                         <a
                           href={info.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium text-xs md:text-sm break-all"
+                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 font-medium text-xs md:text-sm break-all"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <span className="text-gray-300 font-medium text-xs md:text-sm">{info.value}</span>
+                        <span className="text-gray-600 dark:text-gray-300 font-medium text-xs md:text-sm">{info.value}</span>
                       )}
                     </div>
                   </div>
@@ -715,13 +753,13 @@ const CardLanding: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-3 md:p-4">
+    <div className="min-h-screen relative overflow-hidden flex items-center justify-center p-3 md:p-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
       {/* Animated Tech Stack Background */}
       <div className="absolute inset-0">
         {techIcons.map((tech, index) => (
           <motion.div
             key={index}
-            className="absolute opacity-5 md:opacity-10"
+            className="absolute opacity-5 dark:opacity-10"
             initial={{
               x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
               y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
@@ -784,9 +822,9 @@ const CardLanding: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         className="relative z-10 w-full max-w-6xl mx-auto"
       >
-        <div className="bg-white/10 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="flex justify-between items-center p-4 md:p-6 border-b border-white/10">
+          <div className="flex justify-between items-center p-4 md:p-6 border-b border-gray-200/50 dark:border-gray-700/50">
             <div className="flex items-center gap-2 md:gap-3">
               <motion.div 
                 className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm md:text-base"
@@ -795,15 +833,15 @@ const CardLanding: React.FC = () => {
               >
                 ADS
               </motion.div>
-              <span className="text-white font-semibold text-sm md:text-base">Portfolio</span>
+              <span className="text-gray-900 dark:text-white font-semibold text-sm md:text-base">Portfolio</span>
             </div>
             
             <div className="flex items-center gap-2 md:gap-3">
-              <div className="flex bg-white/10 rounded-lg p-1">
+              <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
                 <button
                   onClick={() => setLanguage('en')}
                   className={`px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm font-medium transition-all ${
-                    language === 'en' ? 'bg-white/20 text-white' : 'text-gray-400'
+                    language === 'en' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-600 dark:text-gray-400'
                   }`}
                 >
                   EN
@@ -811,12 +849,24 @@ const CardLanding: React.FC = () => {
                 <button
                   onClick={() => setLanguage('id')}
                   className={`px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm font-medium transition-all ${
-                    language === 'id' ? 'bg-white/20 text-white' : 'text-gray-400'
+                    language === 'id' ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-600 dark:text-gray-400'
                   }`}
                 >
                   ID
                 </button>
               </div>
+              
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {theme === 'light' ? 
+                  <Moon className="w-4 h-4 text-gray-600 dark:text-gray-300" /> : 
+                  <Sun className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                }
+              </motion.button>
             </div>
           </div>
 
@@ -828,17 +878,17 @@ const CardLanding: React.FC = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="border-t border-white/10 p-3 md:p-4">
+          <div className="border-t border-gray-200/50 dark:border-gray-700/50 p-3 md:p-4">
             <div className="flex justify-center">
-              <div className="flex gap-1 md:gap-2 bg-white/5 rounded-xl p-1 md:p-2 backdrop-blur-sm overflow-x-auto">
+              <div className="flex gap-1 md:gap-2 bg-gray-50 dark:bg-gray-800 rounded-xl p-1 md:p-2 backdrop-blur-sm overflow-x-auto scrollbar-hide">
                 {navigationItems.map((item) => (
                   <motion.button
                     key={item.id}
                     onClick={() => setActiveTab(item.id)}
                     className={`flex flex-col items-center gap-1 px-3 py-2 md:px-4 md:py-3 rounded-lg font-medium transition-all whitespace-nowrap min-w-[60px] md:min-w-[80px] ${
                       activeTab === item.id
-                        ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-                        : 'text-gray-400 hover:text-white hover:bg-white/10'
+                        ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/30'
+                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                     }`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
