@@ -376,7 +376,17 @@ const CardLanding: React.FC = () => {
                 </span>
               </div>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-                {language === 'id' ? 'Mahasiswa Teknik Informatika & IT Specialist' : 'Informatic Engineering Student & IT Specialist'}
+                <TypeAnimation
+                  sequence={[
+                    language === 'id' ? 'Mahasiswa Teknik Informatika' : 'Informatic Engineering Student', 2000,
+                    language === 'id' ? 'IT Specialist' : 'IT Specialist', 2000,
+                    language === 'id' ? 'Web Developer' : 'Web Developer', 2000,
+                    language === 'id' ? 'Freelancer' : 'Freelancer', 2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
               </p>
             </div>
             
