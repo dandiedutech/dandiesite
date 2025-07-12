@@ -270,6 +270,12 @@
     .parallax {
       transform: none !important;
     }
+
+    /* Disable Framer Motion animations */
+    [data-framer-motion] {
+      animation: none !important;
+      transition: none !important;
+    }
   }
 
   /* Enhanced high contrast mode */

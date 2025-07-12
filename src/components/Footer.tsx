@@ -36,36 +36,14 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20 dark:from-black dark:via-blue-950/30 dark:to-purple-950/30 text-white py-16 md:py-20 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20 dark:from-black dark:via-blue-950/30 dark:to-purple-950/30 text-white py-12 md:py-16 lg:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-10 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ 
-            duration: 10, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-10 left-10 w-48 h-48 md:w-64 md:h-64 bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-56 h-56 md:w-80 md:h-80 bg-purple-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 max-w-6xl">
         <motion.div 
           className="text-center"
           variants={containerVariants}
@@ -76,25 +54,25 @@ const Footer: React.FC = () => {
           
           {/* Logo and Name */}
           <motion.div 
-            className="mb-12"
+            className="mb-8 md:mb-12"
             variants={itemVariants}
           >
             <motion.div 
-              className="inline-flex items-center gap-4 mb-6"
+              className="inline-flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
               whileHover={{ scale: 1.05 }}
             >
               <motion.div 
-                className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg"
-                whileHover={{ rotate: 5 }}
+                className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg"
+                whileHover={{ rotate: 3 }}
               >
-                <span className="text-2xl font-bold text-white">ADS</span>
+                <span className="text-lg md:text-2xl font-bold text-white">ADS</span>
               </motion.div>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Ahmad Dandi Subhani
               </div>
             </motion.div>
             <motion.p 
-              className="text-gray-300 max-w-md mx-auto text-lg font-medium"
+              className="text-gray-300 max-w-md mx-auto text-base md:text-lg font-medium px-4"
               variants={itemVariants}
             >
               Informatic Engineering Student & IT Specialist passionate about creating digital solutions.
@@ -103,7 +81,7 @@ const Footer: React.FC = () => {
 
           {/* Social Links */}
           <motion.div 
-            className="flex justify-center gap-6 mb-12"
+            className="flex justify-center gap-4 md:gap-6 mb-8 md:mb-12"
             variants={itemVariants}
           >
             {socialLinks.map((social, index) => (
@@ -114,36 +92,29 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label={social.label}
                 className={`p-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/20`}
-                whileHover={{ 
-                  scale: 1.1,
-                  y: -5,
-                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)"
-                }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <social.icon className="w-6 h-6" />
+                <social.icon className="w-5 h-5 md:w-6 md:h-6" />
               </motion.a>
             ))}
           </motion.div>
 
           {/* Quick Contact */}
           <motion.div 
-            className="grid md:grid-cols-2 gap-6 max-w-lg mx-auto mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-lg mx-auto mb-8 md:mb-12 px-4"
             variants={itemVariants}
           >
             <motion.a
               href="mailto:dandiedutech@gmail.com"
-              className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transition-all duration-300 font-semibold shadow-lg"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 15px 30px -5px rgba(59, 130, 246, 0.4)"
-              }}
+              className="flex items-center justify-center gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transition-all duration-300 font-semibold shadow-lg text-sm md:text-base"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4 md:w-5 md:h-5" />
               <span>Email Me</span>
             </motion.a>
             
@@ -151,33 +122,28 @@ const Footer: React.FC = () => {
               href="https://wa.me/6289636035164"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 p-4 rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white transition-all duration-300 font-semibold shadow-lg"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 15px 30px -5px rgba(34, 197, 94, 0.4)"
-              }}
+              className="flex items-center justify-center gap-3 p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white transition-all duration-300 font-semibold shadow-lg text-sm md:text-base"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               <span>WhatsApp</span>
             </motion.a>
           </motion.div>
 
           {/* Copyright */}
           <motion.div 
-            className="pt-8 border-t border-white/20"
+            className="pt-6 md:pt-8 border-t border-white/20"
             variants={itemVariants}
           >
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 px-4">
               <motion.p 
-                className="text-gray-400 font-medium"
-                whileHover={{ scale: 1.02 }}
+                className="text-gray-400 font-medium text-sm md:text-base text-center md:text-left"
               >
                 &copy; {new Date().getFullYear()} Ahmad Dandi Subhani. All rights reserved.
               </motion.p>
               <motion.div 
-                className="flex items-center gap-3 text-gray-400 font-medium"
-                whileHover={{ scale: 1.02 }}
+                className="flex items-center gap-2 md:gap-3 text-gray-400 font-medium text-sm md:text-base text-center"
               >
                 <span>Made with</span>
                 <motion.div
@@ -190,7 +156,7 @@ const Footer: React.FC = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <Heart className="w-5 h-5 text-red-500" />
+                  <Heart className="w-4 h-4 md:w-5 md:h-5 text-red-500" />
                 </motion.div>
                 <span>using React & TypeScript</span>
                 <motion.div
@@ -203,7 +169,7 @@ const Footer: React.FC = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <Sparkles className="w-5 h-5 text-yellow-400" />
+                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
                 </motion.div>
               </motion.div>
             </div>

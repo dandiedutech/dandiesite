@@ -95,40 +95,18 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 pb-32 md:pb-40 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/30 dark:from-gray-900 dark:via-purple-900/10 dark:to-blue-900/10 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 pb-20 md:pb-32 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/30 dark:from-gray-900 dark:via-purple-900/10 dark:to-blue-900/10 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ 
-            duration: 10, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-20 left-10 w-64 h-64 md:w-96 md:h-96 bg-purple-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 md:w-80 md:h-80 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 max-w-7xl">
         
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -151,7 +129,7 @@ const Contact: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12">
           
           {/* Contact Information */}
           <motion.div
@@ -160,12 +138,12 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6 md:mb-8">
               {t('contactInfo')}
             </h3>
             
             <motion.div 
-              className="space-y-6"
+              className="space-y-4 md:space-y-6"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -174,34 +152,30 @@ const Contact: React.FC = () => {
               {contactInfo.map((info, index) => (
                 <motion.div 
                   key={index} 
-                  className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500"
+                  className="bg-white/80 dark:bg-gray-800/80 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
                   variants={itemVariants}
-                  whileHover={{ 
-                    y: -5,
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                  }}
+                  whileHover={{ y: -2 }}
                 >
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center gap-3 md:gap-5">
                     <motion.div 
-                      className={`p-4 rounded-2xl bg-gradient-to-br ${info.gradient} shadow-lg`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className={`p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br ${info.gradient} shadow-lg`}
+                      whileHover={{ scale: 1.05 }}
                     >
-                      <info.icon className="w-7 h-7 text-white" />
+                      <info.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                     </motion.div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 dark:text-white mb-2 text-lg">{info.label}</h4>
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-1 md:mb-2 text-base md:text-lg">{info.label}</h4>
                       {info.link ? (
                         <motion.a
                           href={info.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 font-semibold text-lg"
-                          whileHover={{ scale: 1.02 }}
+                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 font-semibold text-sm md:text-lg break-all"
                         >
                           {info.value}
                         </motion.a>
                       ) : (
-                        <span className="text-gray-700 dark:text-gray-300 font-semibold text-lg">{info.value}</span>
+                        <span className="text-gray-700 dark:text-gray-300 font-semibold text-sm md:text-lg">{info.value}</span>
                       )}
                     </div>
                   </div>
@@ -212,34 +186,31 @@ const Contact: React.FC = () => {
 
           {/* Contact Form */}
           <motion.div 
-            className="bg-white/80 dark:bg-gray-800/80 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-xl"
+            className="bg-white/80 dark:bg-gray-800/80 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            whileHover={{ 
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
-            }}
           >
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
               <motion.div 
-                className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-lg"
-                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="p-2 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-lg"
+                whileHover={{ scale: 1.05 }}
               >
-                <MessageCircle className="w-6 h-6 text-white" />
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </motion.div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">
                 {t('sendMessage')}
               </h3>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <label className="block text-gray-900 dark:text-white font-semibold mb-3 text-lg">
+                <label className="block text-gray-900 dark:text-white font-semibold mb-2 md:mb-3 text-base md:text-lg">
                   {t('yourName')}
                 </label>
                 <motion.input
@@ -248,9 +219,8 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 font-medium"
+                  className="w-full p-3 md:p-4 rounded-lg md:rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 font-medium text-sm md:text-base"
                   placeholder="Enter your name"
-                  whileFocus={{ scale: 1.02 }}
                 />
               </motion.div>
               
@@ -259,7 +229,7 @@ const Contact: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <label className="block text-gray-900 dark:text-white font-semibold mb-3 text-lg">
+                <label className="block text-gray-900 dark:text-white font-semibold mb-2 md:mb-3 text-base md:text-lg">
                   {t('emailAddress')}
                 </label>
                 <motion.input
@@ -268,9 +238,8 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 font-medium"
+                  className="w-full p-3 md:p-4 rounded-lg md:rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 font-medium text-sm md:text-base"
                   placeholder="Enter your email"
-                  whileFocus={{ scale: 1.02 }}
                 />
               </motion.div>
               
@@ -279,7 +248,7 @@ const Contact: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <label className="block text-gray-900 dark:text-white font-semibold mb-3 text-lg">
+                <label className="block text-gray-900 dark:text-white font-semibold mb-2 md:mb-3 text-base md:text-lg">
                   {t('message')}
                 </label>
                 <motion.textarea
@@ -288,25 +257,21 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full p-4 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none font-medium"
+                  className="w-full p-3 md:p-4 rounded-lg md:rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none font-medium text-sm md:text-base"
                   placeholder="Write your message here..."
-                  whileFocus={{ scale: 1.02 }}
                 />
               </motion.div>
               
               <motion.button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 20px 25px -5px rgba(34, 197, 94, 0.4)"
-                }}
+                className="w-full flex items-center justify-center gap-3 px-6 py-3 md:py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-lg md:rounded-xl font-semibold transition-all duration-300 shadow-lg text-sm md:text-base"
+                whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4 md:w-5 md:h-5" />
                 <span>{t('sendWhatsApp')}</span>
               </motion.button>
             </form>

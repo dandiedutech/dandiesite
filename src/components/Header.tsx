@@ -142,19 +142,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
             <div className="flex items-center space-x-3">
               <motion.div 
                 className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center"
-                animate={{ 
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                whileHover={{ scale: 1.1 }}
               >
                 <Code className="w-4 h-4 text-white" />
               </motion.div>
-              <div className="text-lg font-bold text-gray-900 dark:text-white">
-                Ahmad Dandi Subhani
+              <div className="text-lg font-bold text-gray-900 dark:text-white truncate">
+                ADS
               </div>
             </div>
 

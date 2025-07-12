@@ -170,40 +170,18 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="py-20 md:py-32 pb-24 md:pb-32 bg-gradient-to-br from-gray-50 via-green-50/30 to-blue-50/30 dark:from-gray-900 dark:via-green-900/10 dark:to-blue-900/10 relative overflow-hidden">
+    <section id="experience" className="py-12 md:py-20 lg:py-32 pb-16 md:pb-24 lg:pb-32 bg-gradient-to-br from-gray-50 via-green-50/30 to-blue-50/30 dark:from-gray-900 dark:via-green-900/10 dark:to-blue-900/10 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-20 left-20 w-80 h-80 bg-green-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.6, 0.3]
-          }}
-          transition={{ 
-            duration: 14, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ 
-            duration: 16, 
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-20 left-20 w-56 h-56 md:w-80 md:h-80 bg-green-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-64 h-64 md:w-96 md:h-96 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 max-w-7xl">
         
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -228,39 +206,35 @@ const Experience: React.FC = () => {
 
         {/* Education */}
         <motion.div 
-          className="mb-16"
+          className="mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
-              <GraduationCap className="w-7 h-7 text-white" />
+          <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+            <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+              <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-white" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{t('education')}</h3>
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">{t('education')}</h3>
           </div>
           
           <motion.div 
-            className="bg-white/80 dark:bg-gray-800/80 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-xl"
-            whileHover={{ 
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
-            }}
+            className="bg-white/80 dark:bg-gray-800/80 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
           >
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6 md:mb-8">
               <div className="flex-1">
                 <motion.h4 
-                  className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3"
-                  whileHover={{ scale: 1.02 }}
+                  className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3"
                 >
                   {education.degree}
                 </motion.h4>
-                <p className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-semibold">
+                <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 md:mb-6 font-semibold">
                   {education.institution}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg">
-                    <Calendar className="w-5 h-5 text-indigo-500" />
+                  <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 md:py-3 rounded-lg md:rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg text-sm md:text-base">
+                    <Calendar className="w-4 h-4 md:w-5 md:h-5 text-indigo-500" />
                     {education.period}
                   </div>
                 </div>
@@ -268,7 +242,7 @@ const Experience: React.FC = () => {
             </div>
             
             <motion.div 
-              className="space-y-4"
+              className="space-y-3 md:space-y-4"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -277,15 +251,15 @@ const Experience: React.FC = () => {
               {education.activities.map((activity, index) => (
                 <motion.div 
                   key={index} 
-                  className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border border-indigo-200/50 dark:border-indigo-800/50"
+                  className="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border border-indigo-200/50 dark:border-indigo-800/50"
                   variants={itemVariants}
-                  whileHover={{ scale: 1.02, x: 5 }}
+                  whileHover={{ scale: 1.01, x: 3 }}
                 >
                   <motion.div 
-                    className="w-3 h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0"
-                    whileHover={{ scale: 1.5 }}
+                    className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-2 flex-shrink-0"
+                    whileHover={{ scale: 1.2 }}
                   />
-                  <span className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">{activity}</span>
+                  <span className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium text-sm md:text-base">{activity}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -294,15 +268,15 @@ const Experience: React.FC = () => {
 
         {/* Work Experience */}
         <div>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-lg">
-              <Briefcase className="w-7 h-7 text-white" />
+          <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+            <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-lg">
+              <Briefcase className="w-6 h-6 md:w-7 md:h-7 text-white" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{t('workExperience')}</h3>
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">{t('workExperience')}</h3>
           </div>
           
           <motion.div 
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -311,58 +285,54 @@ const Experience: React.FC = () => {
             {workExperience.map((job, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white/80 dark:bg-gray-800/80 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-xl"
+                className="bg-white/80 dark:bg-gray-800/80 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
                 variants={itemVariants}
-                whileHover={{ 
-                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
-                  y: -5
-                }}
+                whileHover={{ y: -3 }}
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6 md:mb-8">
                   <div className="flex-1">
                     <motion.h4 
-                      className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3"
-                      whileHover={{ scale: 1.02 }}
+                      className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3"
                     >
                       {job.title}
                     </motion.h4>
-                    <p className="text-xl text-gray-700 dark:text-gray-300 mb-6 font-bold">
+                    <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-4 md:mb-6 font-bold">
                       {job.company}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3">
                       <motion.div 
-                        className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg"
-                        whileHover={{ scale: 1.05 }}
+                        className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 md:py-3 rounded-lg md:rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg text-sm md:text-base"
+                        whileHover={{ scale: 1.02 }}
                       >
-                        <Calendar className="w-5 h-5 text-blue-500" />
+                        <Calendar className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
                         {job.period}
                       </motion.div>
                       <motion.div 
-                        className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg"
-                        whileHover={{ scale: 1.05 }}
+                        className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-5 py-2 md:py-3 rounded-lg md:rounded-xl bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 font-semibold shadow-lg text-sm md:text-base"
+                        whileHover={{ scale: 1.02 }}
                       >
-                        <MapPin className="w-5 h-5 text-green-500" />
+                        <MapPin className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
                         {job.location}
                       </motion.div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   {job.description.map((item, itemIndex) => (
                     <motion.div 
                       key={itemIndex} 
-                      className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200/50 dark:border-blue-800/50"
+                      className="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200/50 dark:border-blue-800/50"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: itemIndex * 0.1 }}
-                      whileHover={{ scale: 1.02, x: 5 }}
+                      whileHover={{ scale: 1.01, x: 3 }}
                     >
                       <motion.div 
-                        className="w-3 h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 flex-shrink-0"
-                        whileHover={{ scale: 1.5 }}
+                        className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mt-2 flex-shrink-0"
+                        whileHover={{ scale: 1.2 }}
                       />
-                      <span className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium">{item}</span>
+                      <span className="text-gray-700 dark:text-gray-300 leading-relaxed font-medium text-sm md:text-base">{item}</span>
                     </motion.div>
                   ))}
                 </div>
