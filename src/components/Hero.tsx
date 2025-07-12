@@ -133,35 +133,6 @@ const Hero: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Info Cards */}
-            <motion.div 
-              className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto"
-              variants={itemVariants}
-            >
-              <motion.div 
-                className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg"
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
-                }}
-                variants={floatingVariants}
-                animate="animate"
-              >
-                <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
-              
-              <motion.div 
-                className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg"
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
-                }}
-                variants={floatingVariants}
-                animate="animate"
-                style={{ animationDelay: '2s' }}
-              >
-                <div className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
-            </motion.div>
-
             {/* Description */}
             <motion.div 
               className="max-w-4xl mx-auto"
