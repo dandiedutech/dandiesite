@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 md:pt-16 pb-20 md:pb-0 relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-24 md:pt-32 pb-20 md:pb-0 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
