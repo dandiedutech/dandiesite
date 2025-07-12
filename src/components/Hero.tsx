@@ -148,13 +148,6 @@ const Hero: React.FC = () => {
                 animate="animate"
               >
                 <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">Location</div>
-                  <div className="font-bold text-gray-900 dark:text-white text-lg">Jakarta, Indonesia</div>
-                </div>
-              </motion.div>
               
               <motion.div 
                 className="flex items-center gap-4 p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-lg"
@@ -167,13 +160,6 @@ const Hero: React.FC = () => {
                 style={{ animationDelay: '2s' }}
               >
                 <div className="p-3 rounded-xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
-                  <Calendar className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">Experience</div>
-                  <div className="font-bold text-gray-900 dark:text-white text-lg">3+ Years</div>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Description */}
