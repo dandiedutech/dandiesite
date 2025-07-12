@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import { 
   User, 
   Code, 
@@ -205,10 +206,22 @@ const CardLanding: React.FC = () => {
       company: "Radio Alaikassalam 95.5 FM",
       period: "Januari 2022 - Maret 2022",
       location: "Jakarta",
+        "Mendiagnosis kerusakan yang terjadi pada Laptop dan Ponsel dengan kerusakan ringan",
+        "Mengganti Sparepart LCD, Fleksibel, Baterai dan lain-lain",
+        "Upgrade Komponen Laptop (RAM, SSD/HDD)",
+        "Instalasi Sistem Operasi dan Aktivasi dan mengoptimalkannya"
+      ]
+    },
+    {
+      title: "Mengelola E-Commerce",
+      company: "Berbagai Platform",
+      period: "Juli 2019",
+      location: "Jakarta",
       description: [
-        "Merancang dan memproduksi insert radio untuk keperluan rekaman dan siaran",
-        "Membuat presentasi profil perusahaan yang informatif dan menarik, menggambarkan visi, misi, nilai-nilai dan pencapaian perusahaan secara profesional",
-        "Bekerja sama dengan staf perusahaan untuk mengelola dan menyortir dokumen-dokumen perusahaan, memastikan dokumen-dokumen tersebut terarsip dengan baik dan mudah diakses"
+        "Berpengalaman dalam mengelola toko online di berbagai platform e-commerce dan media sosial, termasuk Shopee, Carousell, Tokopedia, dan Facebook Marketplace, baik untuk keperluan pribadi maupun bisnis",
+        "Bertanggung jawab atas seluruh operasional toko online, mulai dari mengunggah produk, memproses pesanan (mempacking dan mengirim barang sesuai jadwal), hingga memberikan pelayanan pelanggan yang responsif dan memuaskan",
+        "Mampu membuat deskripsi produk yang menarik dan lengkap untuk meningkatkan visibilitas produk di platform e-commerce dan menarik minat pembeli",
+        "Memahami dan menguasai berbagai fitur yang tersedia di masing-masing platform e-commerce dan media sosial untuk memaksimalkan efektivitas penjualan dan pengelolaan toko online"
       ]
     }
   ] : [
@@ -245,6 +258,18 @@ const CardLanding: React.FC = () => {
         "Designed and produced radio inserts for recording and broadcasting purposes",
         "Created informative and engaging company profile presentations showcasing vision, mission, values, and achievements",
         "Collaborated with company staff to manage and organize corporate documents for easy access and archival"
+      ]
+    },
+    {
+      title: "E-Commerce Manager",
+      company: "Various Platforms",
+      period: "July 2019",
+      location: "Jakarta",
+      description: [
+        "Managed online stores across multiple e-commerce platforms including Shopee, Carousell, Tokopedia, and Facebook Marketplace",
+        "Handled complete online store operations from product uploads to order processing and customer service",
+        "Created compelling and comprehensive product descriptions to increase visibility and attract buyers",
+        "Mastered various features of e-commerce platforms to maximize sales effectiveness and online store management"
       ]
     }
   ];
