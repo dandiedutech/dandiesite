@@ -226,10 +226,18 @@ const Hero: React.FC = () => {
             >
               <div className="text-sm text-gray-500 dark:text-gray-400 mb-6 font-medium">Tech Stack</div>
               <div className="flex flex-wrap justify-center gap-4">
-                {['React', 'Node.js', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Git'].map((tech, index) => (
+                {[
+                  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+                  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+                  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                  { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+                  { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+                  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
+                ].map((tech, index) => (
                   <motion.div 
-                    key={tech} 
-                    className="px-6 py-3 rounded-xl bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 font-semibold border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
+                    key={tech.name} 
+                    className="flex items-center gap-3 px-6 py-3 rounded-xl bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 font-semibold border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm shadow-lg"
                     whileHover={{ 
                       scale: 1.1,
                       boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
@@ -238,7 +246,8 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 + index * 0.1 }}
                   >
-                    {tech}
+                    <img src={tech.icon} alt={tech.name} className="w-6 h-6" />
+                    <span>{tech.name}</span>
                   </motion.div>
                 ))}
               </div>
