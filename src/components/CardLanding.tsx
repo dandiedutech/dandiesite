@@ -831,7 +831,7 @@ const CardLanding: React.FC = () => {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
-                ADS
+                DS
               </motion.div>
               <span className="text-gray-900 dark:text-white font-semibold text-sm md:text-base">Portfolio</span>
             </div>
