@@ -110,14 +110,14 @@ const CardLanding: React.FC = () => {
     title: "Project Communication Manajement",
     description: language === 'id' ? "Presentasi Manajemen Komunikasi Proyek berbasis Website Interaktif disertai studi kasus" : "Interactive Website-based Project Communication Management presentation with case study",
     url : "https://procomma.vercel.app",
-    image: "https://api.pikwy.com/web/68724a0343831d413f27133e.jpg",
+    image: "https://files.catbox.moe/qzcly4.jpg",
     tech: ["React", "Education", "YouTube"],
     gradient: "from-blue-500-to-orange-500"
     },
     {
     title: "Perlindungan Guru & Sejarah Unindra",
     description: language === 'id' ? "Presentasi Sejarah Pendidikan & PGRI berbasis Website Interaktif" : "Presentation on the History of Education & PGRI based on an Interactive Website",
-    url : "https://procomma.vercel.app",
+    url : "https://keloma.vercel.app",
     image: "https://files.catbox.moe/vlrlne.jpg",
     tech: ["React", "Education", "Interactive"],
     gradient: "from-blue-500-to-orange-500"
