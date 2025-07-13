@@ -94,7 +94,7 @@ const CardLanding: React.FC = () => {
       title: "Belajar Bareng",
       description: language === 'id' ? "Platform pembelajaran kolaboratif untuk mahasiswa dengan fitur interaktif" : "Collaborative learning platform for students with interactive features",
       url: "https://belajarbareng.vercel.app",
-      image: "https://files.catbox.moe/lr7coh.png",
+      image: "https://files.catbox.moe/3bvasr.jpg",
       tech: ["React", "Education", "Collaboration"],
       gradient: "from-indigo-500 to-purple-500"
     },
@@ -113,7 +113,23 @@ const CardLanding: React.FC = () => {
     image: "https://api.pikwy.com/web/68724a0343831d413f27133e.jpg",
     tech: ["React", "Education", "YouTube"],
     gradient: "from-blue-500-to-orange-500"
-    }
+    },
+    {
+    title: "Perlindungan Guru & Sejarah Unindra",
+    description: language === 'id' ? "Presentasi Sejarah Pendidikan & PGRI berbasis Website Interaktif" : "Presentation on the History of Education & PGRI based on an Interactive Website",
+    url : "https://procomma.vercel.app",
+    image: "https://files.catbox.moe/vlrlne.jpg",
+    tech: ["React", "Education", "Interactive"],
+    gradient: "from-blue-500-to-orange-500"
+    },
+    {
+    title: "Byjoyfactory Website",
+    description: language === 'id' ? "Website UMKM Byjoyfactory Crochet dengan Rajutan Kerajinan Tangan" : "Website for small businesses selling handmade crochet from Bekasi under the brand name Byjoyfactory",
+    url : "https://byjoyfactory.vercel.app",
+    image: "https://files.catbox.moe/c8ogtl.jpg",
+    tech: ["React", "UMKM", "Shopping"],
+    gradient: "from-blue-500-to-orange-500"
+    },
   ];
 
   const technicalSkills = [
